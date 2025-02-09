@@ -6,16 +6,18 @@ public class Gun : MonoBehaviour {
 
     public ParticleSystem muzzleFlash;
     private Animator animator;
-    public Camera cam;
+    private Camera cam;
 
     public int magazineCapacity = 6;
     public float shootDelay = 1.0f;
     public float range = 100.0f;
+    public float damage = 5.0f;
     private float lastShotTime = 0.0f;
     private int currentMagazine = 6;
 
     void Start() {
         currentMagazine = magazineCapacity;
+        cam = GameObject.Find("Main Camera").GetComponent<Camera>();
         animator = GetComponent<Animator>();
     }
 
@@ -48,6 +50,10 @@ public class Gun : MonoBehaviour {
         RaycastHit hit;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range)) {
 
+            LifeController lifeController = hit.transform.GetComponent<LifeController>();
+            if (lifeController != null) {
+                lifeController.takeDamage(damage);
+            }
         }
     }
 }
