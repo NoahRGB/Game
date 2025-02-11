@@ -28,7 +28,7 @@ public class Axe : MonoBehaviour {
     void freeCooldowns() {
         List<GameObject> toDelete = new List<GameObject>();
         foreach (GameObject key in cooldowns.Keys) {
-            if (Time.time - cooldowns[key] >= 1.0f) {
+            if (Time.time - cooldowns[key] >= iTime) {
                 toDelete.Add(key);
                 continue;
             }
