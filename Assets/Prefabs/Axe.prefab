@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1562113165951792671}
   - component: {fileID: 9001425379240592920}
   - component: {fileID: 747687977280706101}
-  - component: {fileID: 2849763085347259394}
+  - component: {fileID: 2094756915860610097}
   m_Layer: 0
   m_Name: Axe
   m_TagString: Untagged
@@ -122,8 +122,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
---- !u!64 &2849763085347259394
-MeshCollider:
+  isAttacking: 0
+--- !u!65 &2094756915860610097
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -140,7 +141,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 7fe3f5f9d6f74da4bb0405515d02277c, type: 2}
+  serializedVersion: 3
+  m_Size: {x: 1.0588669, y: 1.5343733, z: 0.19022104}
+  m_Center: {x: 0.6625866, y: 1.8905926, z: -0.0010481862}

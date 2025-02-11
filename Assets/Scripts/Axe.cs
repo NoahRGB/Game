@@ -16,7 +16,7 @@ public class Axe : MonoBehaviour {
     }
 
     void Update() {
-        isAttacking = animator.GetCurrentAnimatorStateInfo(0).IsName("Attack");
+        isAttacking = animator.GetCurrentAnimatorStateInfo(0).IsName("Attack2");
         animator.SetBool("Attack", false);
         freeCooldowns();
 
