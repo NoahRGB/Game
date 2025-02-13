@@ -5,25 +5,44 @@ using UnityEngine;
 public class Movement : MonoBehaviour {
 
     public float walkSpeed = 10.0f;
+    public float crouchSpeed = 5.0f;
     public float sprintSpeed = 15.0f;
+    public float crouchHeight = 2;
     public float gravity = -9.8f;
     public float jumpForce = 100.0f;
     public float floorCheckDistance = 1.0f;
     public CharacterController characterController;
+    private GameObject currentItem;
+    private Camera cam;
 
     private Vector3 velocity;
     private bool isSprinting = false;
+    private bool isCrouching = false;
+
+    void Start() {
+        currentItem = GameObject.Find("Item");
+        cam = GetComponentInChildren<Camera>();
+    }
 
     void Update() {
         float horizontalMove = Input.GetAxis("Horizontal");
         float verticalMove = Input.GetAxis("Vertical");
         isSprinting = Input.GetAxis("Sprint") > 0;
 
+        if (Input.GetKeyDown(KeyCode.LeftControl)) {
+            isCrouching = true;
+            startCrouch();
+        }
+        if (Input.GetKeyUp(KeyCode.LeftControl)) {
+            isCrouching = false;
+            stopCrouch();
+        }
+
+        float currentSpeed = isSprinting ? sprintSpeed : isCrouching ? crouchSpeed : walkSpeed;
         Vector3 movement = transform.right * horizontalMove + transform.forward * verticalMove;
-        characterController.Move(movement * (isSprinting ? sprintSpeed : walkSpeed) * Time.deltaTime);
+        characterController.Move(movement * currentSpeed * Time.deltaTime);
 
         if (isGrounded()) {
-
             if (velocity.y < 0) velocity.y = 0.0f; // building up gravity, so reset it
             if (Input.GetButtonDown("Jump")) velocity.y = jumpForce;
 
@@ -32,6 +51,16 @@ public class Movement : MonoBehaviour {
         }
 
         characterController.Move(velocity * Time.deltaTime);
+    }
+
+    void startCrouch() {
+        cam.transform.Translate(0.0f, -crouchHeight, 0.0f);
+        currentItem.transform.Translate(0.0f, -crouchHeight, 0.0f);
+    }
+    
+    void stopCrouch() {
+        cam.transform.Translate(0.0f, crouchHeight, 0.0f);
+        currentItem.transform.Translate(0.0f, crouchHeight, 0.0f);
     }
 
     // shoots a ray into the floor (Vector3.down) by floorCheckDistance to check for a hit
