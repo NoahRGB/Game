@@ -182,7 +182,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ec222bd971f3d3d41826bd0375a88f00, type: 2}
+  - {fileID: 2100000, guid: 9fb4cb5d70f15c04f8d3fb5c8ce5b541, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -287,7 +287,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ec222bd971f3d3d41826bd0375a88f00, type: 2}
+  - {fileID: 2100000, guid: 92ae317159f7f2a4997cecb135892553, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -469,7 +469,7 @@ MonoBehaviour:
   crouchSpeed: 2
   sprintSpeed: 15
   slideSpeed: 15
-  slideDuration: 500
+  slideDuration: 1000
   crouchHeight: 0.4
   gravity: -0.1
   jumpForce: 23
@@ -1466,7 +1466,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3871730891581560114, guid: 3991d69720f57d347be7defc05f932d9, type: 3}
       propertyPath: sceneName
-      value: Test
+      value: Scene
       objectReference: {fileID: 0}
     - target: {fileID: 5250333929379584278, guid: 3991d69720f57d347be7defc05f932d9, type: 3}
       propertyPath: m_Name
