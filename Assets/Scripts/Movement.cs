@@ -12,7 +12,7 @@ public class Movement : MonoBehaviour {
     public float crouchHeight = 2;
     public float gravity = -9.8f;
     public float jumpForce = 100.0f;
-    public float floorCheckDistance = 1.0f;
+    public float floorCheckDistance = 0.1f;
     public CharacterController characterController;
     public GameObject playerBody;
 
@@ -29,7 +29,7 @@ public class Movement : MonoBehaviour {
 
     void Start() {
         currentItem = GameObject.Find("Item");
-        cam = GetComponentInChildren<Camera>();
+        cam = Camera.main;
     }
 
     void Update() {
@@ -50,19 +50,6 @@ public class Movement : MonoBehaviour {
             stopCrouch();
         }
 
-        if (isGrounded()) {
-            if (velocity.y < 0) velocity.y = 0.0f; // building up gravity, so reset it
-            if (Input.GetButtonDown("Jump")) velocity.y = jumpForce;
-
-        } else {
-            velocity.y += gravity;
-        }
-
-
-    }
-
-    void FixedUpdate() {
-
         if (isSliding) {
             characterController.Move(movementDir * slideSpeed * Time.deltaTime);
             slideTimer -= Time.fixedTime;
@@ -73,15 +60,25 @@ public class Movement : MonoBehaviour {
             }
         }
 
+        if (isGrounded()) {
+            if (velocity.y < 0) velocity.y = 0.0f; // building up gravity, so reset it
+            if (Input.GetButtonDown("Jump")) velocity.y = jumpForce;
+
+        } else { 
+            velocity.y += gravity;
+        }
+
         float currentSpeed = isSprinting ? sprintSpeed : isCrouching ? crouchSpeed : walkSpeed;
         characterController.Move(movementDir * currentSpeed * Time.deltaTime);
 
+    }
+
+    void FixedUpdate() {
         characterController.Move(velocity * Time.deltaTime);
     }
 
     void startSlide() {
         isSliding = true;
-
     }
 
     void stopSlide() {

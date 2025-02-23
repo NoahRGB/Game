@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Axe : MonoBehaviour {
@@ -39,15 +40,18 @@ public class Axe : MonoBehaviour {
     }
 
     void OnCollisionEnter(Collision collision) {
-
+        Debug.Log("Collision detected");
         LifeController lifeController = collision.transform.GetComponent<LifeController>();
         if (lifeController != null) {
+            Debug.Log("Found life controller");
             if (isAttacking) {
+                Debug.Log("I think i'm attacking");
                 if (!cooldowns.ContainsKey(collision.gameObject)) {
+                    Debug.Log("No cooldown. Taking damage");
                     lifeController.takeDamage(damage);
                     cooldowns[collision.gameObject] = Time.time;
                 }
-                
+
             }
         }
     }
