@@ -7,14 +7,16 @@ public class Player : MonoBehaviour {
     public GameObject revolver;
     public GameObject axe;
     public GameObject assaultRifle;
+    public GameObject grenade;
     private GameObject currentItem;
 
 
     void Start() {
-        currentItem = transform.Find("Item").transform.GetChild(0).gameObject;
+        checkForMissingItem();
     }
 
     void Update() {
+        checkForMissingItem();
         if (Input.GetKeyDown(KeyCode.Alpha1)) {
             if (currentItem.transform.name != "Revolver") {
                 switchWeapon("Revolver", revolver);
@@ -29,6 +31,22 @@ public class Player : MonoBehaviour {
             if (currentItem.transform.name != "AssaultRifle") {
                 switchWeapon("AssaultRifle", assaultRifle);
             }
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4)) {
+            if (currentItem.transform.name != "Grenade") {
+                switchWeapon("Grenade", grenade);
+            }
+        }
+    }
+
+    void checkForMissingItem() {
+        Transform parentContainer = transform.Find("Item");
+        bool hasItem = parentContainer.transform.childCount != 0;
+        if (hasItem) {
+            currentItem = parentContainer.transform.GetChild(0).gameObject;
+        } else {
+            Instantiate(revolver, parentContainer.transform);
+            currentItem = parentContainer.transform.GetChild(0).gameObject;
         }
     }
 

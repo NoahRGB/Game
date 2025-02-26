@@ -54,7 +54,6 @@ public class Movement : MonoBehaviour {
             characterController.Move(movementDir * slideSpeed * Time.deltaTime);
             slideTimer -= Time.fixedTime;
 
-            Debug.Log(slideTimer);
             if (slideTimer <= 0) {
                 stopSlide();
             }
@@ -70,11 +69,8 @@ public class Movement : MonoBehaviour {
 
         float currentSpeed = isSprinting ? sprintSpeed : isCrouching ? crouchSpeed : walkSpeed;
         characterController.Move(movementDir * currentSpeed * Time.deltaTime);
-
-    }
-
-    void FixedUpdate() {
         characterController.Move(velocity * Time.deltaTime);
+
     }
 
     void startSlide() {
