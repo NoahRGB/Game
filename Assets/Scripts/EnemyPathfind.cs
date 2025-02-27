@@ -27,12 +27,8 @@ public class EnemyPathfind : MonoBehaviour {
             agent.SetDestination(player.transform.position);
         }
 
-
-
         float velocityMag = agent.desiredVelocity.magnitude;
         float velocityDiff = Vector3.Magnitude(agent.desiredVelocity - agent.velocity);
-
-        Debug.Log("Velocity mag: " + velocityMag + ", velocity diff:" + velocityDiff);
 
         if (velocityDiff <= runSpeedThreshold) {
             isRunning = true;

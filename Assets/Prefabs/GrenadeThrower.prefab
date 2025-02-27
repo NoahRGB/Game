@@ -121,5 +121,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78facb4dd359d8c46a0c398c9eea22ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwForce: 10
+  throwForce: 25
   grenadeToThrow: {fileID: 6950308518000422822, guid: 794b79a951f4dfc48bef2f495366f4aa, type: 3}

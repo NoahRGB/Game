@@ -80,7 +80,7 @@ GameObject:
   - component: {fileID: 4041951002471022327}
   - component: {fileID: 7829925736388202334}
   m_Layer: 0
-  m_Name: ZombieMan
+  m_Name: SmallZombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
