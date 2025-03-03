@@ -36,7 +36,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie
+    path: ZombieBones
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -430,7 +430,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips
+    path: ZombieBones/Hips
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -869,7 +869,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine
+    path: ZombieBones/Hips/Spine
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1110,7 +1110,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1
+    path: ZombieBones/Hips/Spine/Spine1
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1351,7 +1351,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2
+    path: ZombieBones/Hips/Spine/Spine1/Spine2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1691,7 +1691,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/Neck
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/Neck
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2463,7 +2463,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/Neck/Head
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/Neck/Head
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2488,7 +2488,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/Neck/Head/HeadTop_End
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/Neck/Head/HeadTop_End
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2756,7 +2756,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/LeftShoulder
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/LeftShoulder
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -3222,7 +3222,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -3823,7 +3823,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -4433,7 +4433,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -4512,7 +4512,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -4879,7 +4879,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1/LeftHandThumb2
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1/LeftHandThumb2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -5309,7 +5309,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1/LeftHandThumb2/LeftHandThumb3
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1/LeftHandThumb2/LeftHandThumb3
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -5334,7 +5334,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1/LeftHandThumb2/LeftHandThumb3/LeftHandThumb4
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1/LeftHandThumb2/LeftHandThumb3/LeftHandThumb4
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -5773,7 +5773,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -6131,7 +6131,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1/LeftHandIndex2
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1/LeftHandIndex2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -6408,7 +6408,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1/LeftHandIndex2/LeftHandIndex3
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1/LeftHandIndex2/LeftHandIndex3
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -6433,7 +6433,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1/LeftHandIndex2/LeftHandIndex3/LeftHandIndex4
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1/LeftHandIndex2/LeftHandIndex3/LeftHandIndex4
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -6728,7 +6728,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/RightShoulder
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/RightShoulder
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -7212,7 +7212,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -7741,7 +7741,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -8189,7 +8189,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -8268,7 +8268,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -8698,7 +8698,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1/RightHandThumb2
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1/RightHandThumb2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -9236,7 +9236,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1/RightHandThumb2/RightHandThumb3
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1/RightHandThumb2/RightHandThumb3
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -9261,7 +9261,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1/RightHandThumb2/RightHandThumb3/RightHandThumb4
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1/RightHandThumb2/RightHandThumb3/RightHandThumb4
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -9655,7 +9655,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -10013,7 +10013,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1/RightHandIndex2
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1/RightHandIndex2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -10299,7 +10299,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1/RightHandIndex2/RightHandIndex3
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1/RightHandIndex2/RightHandIndex3
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -10324,7 +10324,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1/RightHandIndex2/RightHandIndex3/RightHandIndex4
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1/RightHandIndex2/RightHandIndex3/RightHandIndex4
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -10763,7 +10763,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/LeftUpLeg
+    path: ZombieBones/Hips/LeftUpLeg
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -11202,7 +11202,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/LeftUpLeg/LeftLeg
+    path: ZombieBones/Hips/LeftUpLeg/LeftLeg
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -11614,7 +11614,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/LeftUpLeg/LeftLeg/LeftFoot
+    path: ZombieBones/Hips/LeftUpLeg/LeftLeg/LeftFoot
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -12053,7 +12053,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase
+    path: ZombieBones/Hips/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -12078,7 +12078,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase/LeftToe_End
+    path: ZombieBones/Hips/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase/LeftToe_End
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -12535,7 +12535,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/RightUpLeg
+    path: ZombieBones/Hips/RightUpLeg
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -13010,7 +13010,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/RightUpLeg/RightLeg
+    path: ZombieBones/Hips/RightUpLeg/RightLeg
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -13422,7 +13422,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/RightUpLeg/RightLeg/RightFoot
+    path: ZombieBones/Hips/RightUpLeg/RightLeg/RightFoot
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -13915,7 +13915,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/RightUpLeg/RightLeg/RightFoot/RightToeBase
+    path: ZombieBones/Hips/RightUpLeg/RightLeg/RightFoot/RightToeBase
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -13940,7 +13940,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/RightUpLeg/RightLeg/RightFoot/RightToeBase/RightToe_End
+    path: ZombieBones/Hips/RightUpLeg/RightLeg/RightFoot/RightToeBase/RightToe_End
   m_CompressedRotationCurves: []
   m_EulerCurves: []
   m_PositionCurves:
@@ -13968,7 +13968,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie
+    path: ZombieBones
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -14893,7 +14893,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips
+    path: ZombieBones/Hips
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -14918,7 +14918,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine
+    path: ZombieBones/Hips/Spine
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -14943,7 +14943,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1
+    path: ZombieBones/Hips/Spine/Spine1
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -14968,7 +14968,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2
+    path: ZombieBones/Hips/Spine/Spine1/Spine2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -14993,7 +14993,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/Neck
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/Neck
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -15018,7 +15018,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/Neck/Head
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/Neck/Head
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -15043,7 +15043,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/Neck/Head/HeadTop_End
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/Neck/Head/HeadTop_End
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -15068,7 +15068,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/LeftShoulder
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/LeftShoulder
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -15093,7 +15093,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -15118,7 +15118,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -15143,7 +15143,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -15168,7 +15168,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -15193,7 +15193,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1/LeftHandThumb2
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1/LeftHandThumb2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -15218,7 +15218,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1/LeftHandThumb2/LeftHandThumb3
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1/LeftHandThumb2/LeftHandThumb3
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -15243,7 +15243,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1/LeftHandThumb2/LeftHandThumb3/LeftHandThumb4
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1/LeftHandThumb2/LeftHandThumb3/LeftHandThumb4
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -15268,7 +15268,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -15293,7 +15293,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1/LeftHandIndex2
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1/LeftHandIndex2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -15318,7 +15318,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1/LeftHandIndex2/LeftHandIndex3
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1/LeftHandIndex2/LeftHandIndex3
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -15343,7 +15343,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1/LeftHandIndex2/LeftHandIndex3/LeftHandIndex4
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1/LeftHandIndex2/LeftHandIndex3/LeftHandIndex4
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -15368,7 +15368,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/RightShoulder
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/RightShoulder
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -15393,7 +15393,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -15418,7 +15418,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -15443,7 +15443,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -15468,7 +15468,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -15493,7 +15493,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1/RightHandThumb2
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1/RightHandThumb2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -15518,7 +15518,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1/RightHandThumb2/RightHandThumb3
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1/RightHandThumb2/RightHandThumb3
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -15543,7 +15543,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1/RightHandThumb2/RightHandThumb3/RightHandThumb4
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1/RightHandThumb2/RightHandThumb3/RightHandThumb4
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -15568,7 +15568,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -15593,7 +15593,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1/RightHandIndex2
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1/RightHandIndex2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -15618,7 +15618,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1/RightHandIndex2/RightHandIndex3
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1/RightHandIndex2/RightHandIndex3
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -15643,7 +15643,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1/RightHandIndex2/RightHandIndex3/RightHandIndex4
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1/RightHandIndex2/RightHandIndex3/RightHandIndex4
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -15668,7 +15668,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/LeftUpLeg
+    path: ZombieBones/Hips/LeftUpLeg
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -15693,7 +15693,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/LeftUpLeg/LeftLeg
+    path: ZombieBones/Hips/LeftUpLeg/LeftLeg
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -15718,7 +15718,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/LeftUpLeg/LeftLeg/LeftFoot
+    path: ZombieBones/Hips/LeftUpLeg/LeftLeg/LeftFoot
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -15743,7 +15743,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase
+    path: ZombieBones/Hips/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -15768,7 +15768,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase/LeftToe_End
+    path: ZombieBones/Hips/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase/LeftToe_End
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -15793,7 +15793,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/RightUpLeg
+    path: ZombieBones/Hips/RightUpLeg
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -15818,7 +15818,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/RightUpLeg/RightLeg
+    path: ZombieBones/Hips/RightUpLeg/RightLeg
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -15843,7 +15843,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/RightUpLeg/RightLeg/RightFoot
+    path: ZombieBones/Hips/RightUpLeg/RightLeg/RightFoot
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -15868,7 +15868,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/RightUpLeg/RightLeg/RightFoot/RightToeBase
+    path: ZombieBones/Hips/RightUpLeg/RightLeg/RightFoot/RightToeBase
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -15893,7 +15893,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/RightUpLeg/RightLeg/RightFoot/RightToeBase/RightToe_End
+    path: ZombieBones/Hips/RightUpLeg/RightLeg/RightFoot/RightToeBase/RightToe_End
   m_ScaleCurves:
   - curve:
       serializedVersion: 2
@@ -15919,7 +15919,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie
+    path: ZombieBones
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -15944,7 +15944,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips
+    path: ZombieBones/Hips
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -15969,7 +15969,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine
+    path: ZombieBones/Hips/Spine
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -15994,7 +15994,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1
+    path: ZombieBones/Hips/Spine/Spine1
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -16019,7 +16019,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2
+    path: ZombieBones/Hips/Spine/Spine1/Spine2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -16044,7 +16044,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/Neck
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/Neck
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -16069,7 +16069,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/Neck/Head
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/Neck/Head
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -16094,7 +16094,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/Neck/Head/HeadTop_End
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/Neck/Head/HeadTop_End
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -16119,7 +16119,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/LeftShoulder
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/LeftShoulder
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -16144,7 +16144,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -16169,7 +16169,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -16194,7 +16194,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -16219,7 +16219,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -16244,7 +16244,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1/LeftHandThumb2
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1/LeftHandThumb2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -16269,7 +16269,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1/LeftHandThumb2/LeftHandThumb3
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1/LeftHandThumb2/LeftHandThumb3
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -16294,7 +16294,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1/LeftHandThumb2/LeftHandThumb3/LeftHandThumb4
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1/LeftHandThumb2/LeftHandThumb3/LeftHandThumb4
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -16319,7 +16319,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -16344,7 +16344,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1/LeftHandIndex2
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1/LeftHandIndex2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -16369,7 +16369,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1/LeftHandIndex2/LeftHandIndex3
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1/LeftHandIndex2/LeftHandIndex3
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -16394,7 +16394,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1/LeftHandIndex2/LeftHandIndex3/LeftHandIndex4
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1/LeftHandIndex2/LeftHandIndex3/LeftHandIndex4
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -16419,7 +16419,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/RightShoulder
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/RightShoulder
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -16444,7 +16444,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -16469,7 +16469,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -16494,7 +16494,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -16519,7 +16519,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -16544,7 +16544,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1/RightHandThumb2
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1/RightHandThumb2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -16569,7 +16569,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1/RightHandThumb2/RightHandThumb3
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1/RightHandThumb2/RightHandThumb3
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -16594,7 +16594,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1/RightHandThumb2/RightHandThumb3/RightHandThumb4
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1/RightHandThumb2/RightHandThumb3/RightHandThumb4
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -16619,7 +16619,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -16644,7 +16644,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1/RightHandIndex2
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1/RightHandIndex2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -16669,7 +16669,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1/RightHandIndex2/RightHandIndex3
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1/RightHandIndex2/RightHandIndex3
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -16694,7 +16694,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1/RightHandIndex2/RightHandIndex3/RightHandIndex4
+    path: ZombieBones/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1/RightHandIndex2/RightHandIndex3/RightHandIndex4
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -16719,7 +16719,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/LeftUpLeg
+    path: ZombieBones/Hips/LeftUpLeg
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -16744,7 +16744,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/LeftUpLeg/LeftLeg
+    path: ZombieBones/Hips/LeftUpLeg/LeftLeg
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -16769,7 +16769,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/LeftUpLeg/LeftLeg/LeftFoot
+    path: ZombieBones/Hips/LeftUpLeg/LeftLeg/LeftFoot
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -16794,7 +16794,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase
+    path: ZombieBones/Hips/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -16819,7 +16819,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase/LeftToe_End
+    path: ZombieBones/Hips/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase/LeftToe_End
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -16844,7 +16844,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/RightUpLeg
+    path: ZombieBones/Hips/RightUpLeg
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -16869,7 +16869,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/RightUpLeg/RightLeg
+    path: ZombieBones/Hips/RightUpLeg/RightLeg
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -16894,7 +16894,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/RightUpLeg/RightLeg/RightFoot
+    path: ZombieBones/Hips/RightUpLeg/RightLeg/RightFoot
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -16919,7 +16919,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/RightUpLeg/RightLeg/RightFoot/RightToeBase
+    path: ZombieBones/Hips/RightUpLeg/RightLeg/RightFoot/RightToeBase
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -16944,7 +16944,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Zombie/Hips/RightUpLeg/RightLeg/RightFoot/RightToeBase/RightToe_End
+    path: ZombieBones/Hips/RightUpLeg/RightLeg/RightFoot/RightToeBase/RightToe_End
   m_FloatCurves: []
   m_PPtrCurves: []
   m_SampleRate: 24

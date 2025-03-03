@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Gun : MonoBehaviour {
@@ -7,6 +8,7 @@ public class Gun : MonoBehaviour {
     public ParticleSystem muzzleFlash;
     private Animator animator;
     private Camera cam;
+    private TMP_Text ammoText;
 
     public int magazineCapacity = 6;
     public float shootDelay = 1.0f;
@@ -19,6 +21,8 @@ public class Gun : MonoBehaviour {
         currentMagazine = magazineCapacity;
         cam = GameObject.Find("Main Camera").GetComponent<Camera>();
         animator = GetComponent<Animator>();
+        ammoText = GameObject.Find("AmmoCountUI").GetComponent<TMP_Text>();
+        UpdateUI();
     }
 
     void Update() {
@@ -34,13 +38,14 @@ public class Gun : MonoBehaviour {
         }
 
         if (Input.GetKeyDown(KeyCode.R)) {
-            reload();
+            Reload();
         }
     }
 
-    void reload() {
+    void Reload() {
         currentMagazine = magazineCapacity;
         animator.SetBool("Reload", true);
+        UpdateUI();
     }
 
     void Shoot() {
@@ -55,5 +60,11 @@ public class Gun : MonoBehaviour {
                 lifeController.takeDamage(damage);
             }
         }
+
+        UpdateUI();
+    }
+
+    void UpdateUI() {
+        ammoText.text = $"{currentMagazine}/{magazineCapacity}";
     }
 }

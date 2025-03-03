@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GrenadeThrower : MonoBehaviour {
@@ -8,10 +9,12 @@ public class GrenadeThrower : MonoBehaviour {
     public GameObject grenadeToThrow;
 
     private Camera cam;
-
+    private TMP_Text ammoText;
 
     void Start() {
         cam = Camera.main;
+        ammoText = GameObject.Find("AmmoCountUI").GetComponent<TMP_Text>();
+        ammoText.text = "";
     }
 
     void Update() {

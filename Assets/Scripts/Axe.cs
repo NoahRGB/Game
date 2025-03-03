@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -8,12 +9,16 @@ public class Axe : MonoBehaviour {
     public float damage = 10.0f;
     private float iTime = 1.0f;
     public bool isAttacking = false;
+
     [SerializeField] private Dictionary<GameObject, float> cooldowns;
     private Animator animator;
+    private TMP_Text ammoText;
 
     void Start() { 
         cooldowns = new Dictionary<GameObject, float>();
         animator = GetComponent<Animator>();
+        ammoText = GameObject.Find("AmmoCountUI").GetComponent<TMP_Text>();
+        ammoText.text = "";
     }
 
     void Update() {

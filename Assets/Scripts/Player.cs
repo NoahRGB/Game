@@ -1,17 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
+
+    private TMP_Text weaponText;
 
     public GameObject revolver;
     public GameObject axe;
     public GameObject assaultRifle;
     public GameObject grenade;
-    private GameObject currentItem;
-
+    public GameObject currentItem;
 
     void Start() {
+        weaponText = GameObject.Find("WeaponNameUI").GetComponent<TMP_Text>();
         checkForMissingItem();
     }
 
@@ -28,7 +31,7 @@ public class Player : MonoBehaviour {
             }
         }
         if (Input.GetKeyDown(KeyCode.Alpha3)) {
-            if (currentItem.transform.name != "AssaultRifle") {
+            if (currentItem.transform.name != "Assault Rifle") {
                 switchWeapon("AssaultRifle", assaultRifle);
             }
         }
@@ -37,6 +40,8 @@ public class Player : MonoBehaviour {
                 switchWeapon("Grenade", grenade);
             }
         }
+
+        weaponText.text = currentItem.transform.name;
     }
 
     void checkForMissingItem() {

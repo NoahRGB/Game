@@ -12,12 +12,13 @@ public class Movement : MonoBehaviour {
     public float crouchHeight = 2;
     public float gravity = -9.8f;
     public float jumpForce = 100.0f;
-    public float floorCheckDistance = 0.1f;
-    public CharacterController characterController;
-    public GameObject playerBody;
+    public float floorCheckDistance = 1.2f;
 
+    public GameObject playerBody;
+    private CharacterController characterController;
     private GameObject currentItem;
     private Camera cam;
+    private CapsuleCollider capsuleCollider;
 
     private bool isSprinting = false;
     private bool isCrouching = false;
@@ -28,6 +29,8 @@ public class Movement : MonoBehaviour {
     private Vector3 velocity;
 
     void Start() {
+        characterController = GetComponent<CharacterController>();
+        capsuleCollider = GetComponent<CapsuleCollider>();
         currentItem = GameObject.Find("Item");
         cam = Camera.main;
     }
@@ -85,8 +88,14 @@ public class Movement : MonoBehaviour {
     void startCrouch() {
         isCrouching = true;
         playerBody.transform.localScale = new Vector3(transform.localScale.x, crouchHeight, transform.localScale.z);
+
         cam.transform.Translate(0.0f, -crouchHeight, 0.0f);
         currentItem.transform.Translate(0.0f, -crouchHeight, 0.0f);
+
+        characterController.height = 0.8f;
+        capsuleCollider.height = 0.8f;
+        floorCheckDistance = 0.2f;
+
     }
     
     void stopCrouch() {
@@ -94,6 +103,12 @@ public class Movement : MonoBehaviour {
         playerBody.transform.localScale = new Vector3(transform.localScale.x, 1.0f, transform.localScale.z);
         cam.transform.Translate(0.0f, crouchHeight, 0.0f);
         currentItem.transform.Translate(0.0f, crouchHeight, 0.0f);
+
+        characterController.height = 2.0f;
+        capsuleCollider.height = 2.0f;
+        floorCheckDistance = 1.2f;
+
+        characterController.Move(Vector3.one * 0.5f * Time.deltaTime);
     }
 
     // shoots a ray into the floor (Vector3.down) by floorCheckDistance to check for a hit
