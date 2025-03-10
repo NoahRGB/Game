@@ -6,6 +6,10 @@ using UnityEngine;
 public class Gun : MonoBehaviour {
 
     public ParticleSystem muzzleFlash;
+    public AudioClip shootSound;
+    public AudioClip reloadSound;
+
+    private AudioSource audioSource;
     private Animator animator;
     private Camera cam;
     private TMP_Text ammoText;
@@ -22,6 +26,7 @@ public class Gun : MonoBehaviour {
         cam = GameObject.Find("Main Camera").GetComponent<Camera>();
         animator = GetComponent<Animator>();
         ammoText = GameObject.Find("AmmoCountUI").GetComponent<TMP_Text>();
+        audioSource = GetComponent<AudioSource>();
         UpdateUI();
     }
 
@@ -45,12 +50,18 @@ public class Gun : MonoBehaviour {
     void Reload() {
         currentMagazine = magazineCapacity;
         animator.SetBool("Reload", true);
+        if (audioSource != null) {
+            audioSource.PlayOneShot(reloadSound);
+        }
         UpdateUI();
     }
 
     void Shoot() {
         animator.SetBool("Shoot", true);
         muzzleFlash.Play();
+        if (audioSource != null) {
+            audioSource.PlayOneShot(shootSound);
+        }
 
         RaycastHit hit;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range)) {

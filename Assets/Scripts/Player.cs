@@ -6,7 +6,9 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
     private TMP_Text weaponText;
+    private AudioSource audioSource;
 
+    public AudioClip selectSound;
     public GameObject revolver;
     public GameObject axe;
     public GameObject assaultRifle;
@@ -15,6 +17,7 @@ public class Player : MonoBehaviour {
 
     void Start() {
         weaponText = GameObject.Find("WeaponNameUI").GetComponent<TMP_Text>();
+        audioSource = GetComponent<AudioSource>();
         checkForMissingItem();
     }
 
@@ -56,6 +59,7 @@ public class Player : MonoBehaviour {
     }
 
     void switchWeapon(string weaponName, GameObject weaponObject) {
+        audioSource.PlayOneShot(selectSound);
         Destroy(currentItem);
         currentItem = Instantiate(weaponObject, transform.Find("Item"));
         currentItem.transform.name = weaponName;

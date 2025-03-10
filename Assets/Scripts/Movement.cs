@@ -14,7 +14,10 @@ public class Movement : MonoBehaviour {
     public float jumpForce = 100.0f;
     public float floorCheckDistance = 1.2f;
 
+    public AudioClip jumpSound;
+
     public GameObject playerBody;
+    private AudioSource audioSource;
     private CharacterController characterController;
     private GameObject currentItem;
     private Camera cam;
@@ -31,6 +34,7 @@ public class Movement : MonoBehaviour {
     void Start() {
         characterController = GetComponent<CharacterController>();
         capsuleCollider = GetComponent<CapsuleCollider>();
+        audioSource = GetComponent<AudioSource>();
         currentItem = GameObject.Find("Item");
         cam = Camera.main;
     }
@@ -64,7 +68,10 @@ public class Movement : MonoBehaviour {
 
         if (isGrounded()) {
             if (velocity.y < 0) velocity.y = 0.0f; // building up gravity, so reset it
-            if (Input.GetButtonDown("Jump")) velocity.y = jumpForce;
+            if (Input.GetButtonDown("Jump")) {
+                velocity.y = jumpForce;
+                audioSource.PlayOneShot(jumpSound);
+            }
 
         } else { 
             velocity.y += gravity;
