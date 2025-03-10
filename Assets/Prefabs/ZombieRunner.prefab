@@ -660,8 +660,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.01, y: 0.0059390757, z: 0.009962556}
-  m_Center: {x: 0.0000000047311493, y: 0.0035652206, z: 0.0068473336}
+  m_Size: {x: 0.01, y: 0.0059390757, z: 0.025082046}
+  m_Center: {x: 0.000000008803172, y: 0.003565185, z: 0.01440703}
 --- !u!114 &5555795517182518501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -675,6 +675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitting: 0
+  collidedTag: 
 --- !u!1 &3211185836132712156
 GameObject:
   m_ObjectHideFlags: 0

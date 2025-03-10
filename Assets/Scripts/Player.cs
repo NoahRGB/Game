@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
@@ -18,29 +19,30 @@ public class Player : MonoBehaviour {
     void Start() {
         weaponText = GameObject.Find("WeaponNameUI").GetComponent<TMP_Text>();
         audioSource = GetComponent<AudioSource>();
+
         checkForMissingItem();
     }
 
     void Update() {
         checkForMissingItem();
         if (Input.GetKeyDown(KeyCode.Alpha1)) {
-            if (currentItem.transform.name != "Revolver") {
-                switchWeapon("Revolver", revolver);
+            if (currentItem.transform.name != "REVOLVER") {
+                switchWeapon("REVOLVER", revolver);
             }
         }
         if (Input.GetKeyDown(KeyCode.Alpha2)) {
-            if (currentItem.transform.name != "Axe") {
-                switchWeapon("Axe", axe);
+            if (currentItem.transform.name != "AXE") {
+                switchWeapon("AXE", axe);
             }
         }
         if (Input.GetKeyDown(KeyCode.Alpha3)) {
-            if (currentItem.transform.name != "Assault Rifle") {
-                switchWeapon("AssaultRifle", assaultRifle);
+            if (currentItem.transform.name != "ASSAULT RIFLE") {
+                switchWeapon("ASSAULT RIFLE", assaultRifle);
             }
         }
         if (Input.GetKeyDown(KeyCode.Alpha4)) {
-            if (currentItem.transform.name != "Grenade") {
-                switchWeapon("Grenade", grenade);
+            if (currentItem.transform.name != "GRENADE") {
+                switchWeapon("GRENADE", grenade);
             }
         }
 
@@ -53,8 +55,7 @@ public class Player : MonoBehaviour {
         if (hasItem) {
             currentItem = parentContainer.transform.GetChild(0).gameObject;
         } else {
-            Instantiate(revolver, parentContainer.transform);
-            currentItem = parentContainer.transform.GetChild(0).gameObject;
+            switchWeapon("REVOLVER", revolver);
         }
     }
 

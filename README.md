@@ -8,3 +8,4 @@ I did not create most of the assets/models used in the game, but all were releas
 - [Gunshot sound](https://freesound.org/s/369528/)
 - [Reload sound](https://freesound.org/s/585256/) 
 - [Click sound](https://freesound.org/s/580827/)
+- [Hitmarker sound](https://freesound.org/s/322640/)

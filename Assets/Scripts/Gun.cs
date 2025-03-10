@@ -5,9 +5,11 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour {
 
+    public GameObject hitEffect;
     public ParticleSystem muzzleFlash;
     public AudioClip shootSound;
     public AudioClip reloadSound;
+    public AudioClip hitmarkerSound;
 
     private AudioSource audioSource;
     private Animator animator;
@@ -65,9 +67,11 @@ public class Gun : MonoBehaviour {
 
         RaycastHit hit;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range)) {
+            Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
 
             LifeController lifeController = hit.transform.GetComponent<LifeController>();
             if (lifeController != null) {
+                audioSource.PlayOneShot(hitmarkerSound);
                 lifeController.takeDamage(damage);
             }
         }
