@@ -67,7 +67,8 @@ public class Gun : MonoBehaviour {
 
         RaycastHit hit;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range)) {
-            Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
+            GameObject effect = Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
+            Destroy(effect, 2.0f);
 
             LifeController lifeController = hit.transform.GetComponent<LifeController>();
             if (lifeController != null) {

@@ -12,18 +12,22 @@ public class LifeController : MonoBehaviour {
     public float health = 20.0f;
 
     void Start() {
-        healthBarText = GameObject.Find("HealthBarTextUI").GetComponent<TMP_Text>();
-        healthBar = GameObject.Find("HealthBar").GetComponent<HealthBar>();
-        if (healthBar != null) {
-            healthBar.SetMaxHealth((int)maxHealth);
+        if (gameObject.name == "Player") {
+            healthBarText = GameObject.Find("HealthBarTextUI").GetComponent<TMP_Text>();
+            healthBar = GameObject.Find("HealthBar").GetComponent<HealthBar>();
+            if (healthBar != null) {
+                healthBar.SetMaxHealth((int)maxHealth);
+            }
         }
     }
 
     public void takeDamage(float damage) {
         health -= damage;
 
-        healthBarText.text = ((health / maxHealth) * 100) + "%";
-        healthBar.SetHealth((int)health);
+        if (gameObject.name == "Player") {
+            healthBarText.text = ((health / maxHealth) * 100) + "%";
+            healthBar.SetHealth((int)health);
+        }
 
         if (health <= 0) {
             die();
