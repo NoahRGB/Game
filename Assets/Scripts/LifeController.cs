@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LifeController : MonoBehaviour {
 
@@ -35,6 +36,11 @@ public class LifeController : MonoBehaviour {
     }
 
     private void die() {
-        Destroy(gameObject);
+        if (gameObject.name != "Player") {
+            Destroy(gameObject);
+        } else {
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene("GameOver");
+        }
     }
 }

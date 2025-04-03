@@ -17,7 +17,9 @@ public class Goal : MonoBehaviour {
     }
 
     void OnCollisionEnter(Collision collision) {
-        SceneManager.LoadScene(sceneName);
+        if (collision.collider.gameObject.name == "Player") {
+            SceneManager.LoadScene(sceneName);
+        }
     }
 
     public void disableGoal() {
