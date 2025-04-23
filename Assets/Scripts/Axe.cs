@@ -6,11 +6,18 @@ using UnityEngine;
 
 public class Axe : MonoBehaviour {
 
+    public AudioClip swingSound;
+    public AudioClip slashSound;
     public float damage = 10.0f;
-    private float iTime = 1.0f;
-    public bool isAttacking = false;
+    public float attackCooldown = 1.0f;
 
+    public bool isAttacking = false;
+    public bool canAttack = true;
+
+    private float iTime = 0.5f;
     [SerializeField] private Dictionary<GameObject, float> cooldowns;
+
+    private AudioSource audioSource;
     private Animator animator;
     private TMP_Text ammoText;
 
@@ -19,16 +26,26 @@ public class Axe : MonoBehaviour {
         animator = GetComponent<Animator>();
         ammoText = GameObject.Find("AmmoCountUI").GetComponent<TMP_Text>();
         ammoText.text = "";
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update() {
-        isAttacking = animator.GetCurrentAnimatorStateInfo(0).IsName("Attack2");
-        animator.SetBool("Attack", false);
         freeCooldowns();
 
         if (Input.GetMouseButtonDown(0)) {
-            animator.SetBool("Attack", true);
+            if (!isAttacking) {
+
+                if (!audioSource.isPlaying) {
+                    audioSource.PlayOneShot(swingSound);
+                }
+                animator.SetTrigger("Attack");
+                StartCoroutine(resetAttackCooldown());
+            }
         }
+    }
+
+    IEnumerator resetAttackCooldown() {
+        yield return new WaitForSeconds(attackCooldown);
     }
 
     void freeCooldowns() {
@@ -45,21 +62,19 @@ public class Axe : MonoBehaviour {
     }
 
     void OnCollisionEnter(Collision collision) {
-        Debug.Log("Collision detected");
-        LifeController lifeController = collision.transform.GetComponent<LifeController>();
-        if (lifeController != null) {
-            Debug.Log("Found life controller");
-            if (isAttacking) {
-                Debug.Log("I think i'm attacking");
-                if (!cooldowns.ContainsKey(collision.gameObject)) {
-                    Debug.Log("No cooldown. Taking damage");
-                    lifeController.takeDamage(damage);
-                    cooldowns[collision.gameObject] = Time.time;
-                }
+        if (collision.gameObject.tag == "Enemy") {
+            LifeController lifeController = collision.transform.GetComponent<LifeController>();
 
+            if (lifeController != null) {
+                if (isAttacking) {
+                    if (!cooldowns.ContainsKey(collision.gameObject)) {
+                        audioSource.PlayOneShot(slashSound);
+                        lifeController.takeDamage(damage);
+                        cooldowns[collision.gameObject] = Time.time;
+                    }
+
+                }
             }
         }
     }
-
-    
 }

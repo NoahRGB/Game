@@ -9,3 +9,5 @@ I did not create most of the assets/models used in the game, but all were releas
 - [Reload sound](https://freesound.org/s/585256/) 
 - [Click sound](https://freesound.org/s/580827/)
 - [Hitmarker sound](https://freesound.org/s/322640/)
+- [Slash sound](https://freesound.org/s/574820/)
+- [Swing sound](https://freesound.org/s/394426/)

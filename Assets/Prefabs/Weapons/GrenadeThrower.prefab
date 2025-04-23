@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7315313773069516149}
   - component: {fileID: 3394637614908028340}
   - component: {fileID: 1671128182286981704}
+  - component: {fileID: 1020157168102972877}
   m_Layer: 6
   m_Name: GrenadeThrower
   m_TagString: Untagged
@@ -123,3 +124,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwForce: 25
   grenadeToThrow: {fileID: 6950308518000422822, guid: 794b79a951f4dfc48bef2f495366f4aa, type: 3}
+--- !u!114 &1020157168102972877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6674806250069176683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96d025d636ad05d4fba6e722ace59c72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
