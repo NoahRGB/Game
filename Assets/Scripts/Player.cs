@@ -8,6 +8,7 @@ public class Player : MonoBehaviour {
 
     private TMP_Text weaponText;
     private AudioSource audioSource;
+    private GameObject magazineUI;
 
     public AudioClip selectSound;
     public GameObject revolver;
@@ -16,7 +17,10 @@ public class Player : MonoBehaviour {
     public GameObject grenade;
     public GameObject currentItem;
 
+    private List<string> ammoWeapons = new List<string>() { "REVOLVER", "ASSAULT RIFLE" };
+
     void Start() {
+        magazineUI = GameObject.Find("MagazineUI");
         weaponText = GameObject.Find("WeaponNameUI").GetComponent<TMP_Text>();
         audioSource = GetComponent<AudioSource>();
 
@@ -64,5 +68,11 @@ public class Player : MonoBehaviour {
         Destroy(currentItem);
         currentItem = Instantiate(weaponObject, transform.Find("Item"));
         currentItem.transform.name = weaponName;
+
+        if (ammoWeapons.Contains(weaponName)) {
+            magazineUI.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+        } else {
+            magazineUI.transform.localScale = Vector3.zero;
+        }
     }
 }
