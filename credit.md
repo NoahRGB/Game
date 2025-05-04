@@ -1,0 +1,12 @@
+
+- [3D models](https://quaternius.com/)
+- [3D Animations](https://www.mixamo.com/)
+- [Explosion particle effect](https://assetstore.unity.com/packages/vfx/particles/particle-pack-127325), [Explosion sound](https://assetstore.unity.com/packages/audio/sound-fx/shooting-sound-177096)
+- [Gunshot sound](https://freesound.org/s/369528/), [Reload sound](https://freesound.org/s/585256/) 
+- [Click sound](https://freesound.org/s/580827/)
+- [Hitmarker sound](https://freesound.org/s/322640/)
+- [Slash sound](https://freesound.org/s/574820/)
+- [Swing sound](https://freesound.org/s/394426/)
+- Zombie sounds [1](https://freesound.org/people/Under7dude/sounds/163445/), [2](https://freesound.org/people/CrocyTC/sounds/353063/), [3](https://freesound.org/people/CrocyTC/sounds/353061/), [4](https://freesound.org/people/OwNathan/sounds/754438/), [5](https://freesound.org/people/OwNathan/sounds/754441/), [6](https://freesound.org/people/OwNathan/sounds/754440/), [7](https://freesound.org/people/OwNathan/sounds/754439/), [8](https://freesound.org/people/JollyGreenZ/sounds/534602/)
+- [Player hit](https://freesound.org/people/Under7dude/sounds/163441/), [Player death](https://freesound.org/people/Under7dude/sounds/163442/)
+- [Skybox](https://assetstore.unity.com/packages/2d/textures-materials/sky/skybox-series-free-103633?srsltid=AfmBOooRkL2dAkzPZzKEqpMHOoqSIZd9IHya_zm9YDgFAMcESxPZoSL7)

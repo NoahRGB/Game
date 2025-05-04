@@ -67,6 +67,11 @@ public class Gun : MonoBehaviour {
 
         RaycastHit hit;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range)) {
+
+            if (hit.transform.GetComponent<MeleeEnemy>() != null) {
+                if (hit.transform.GetComponent<MeleeEnemy>().isDead) return;
+            }
+
             GameObject effect = Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
             Destroy(effect, 2.0f);
 

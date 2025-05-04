@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
@@ -11,6 +12,8 @@ public class Player : MonoBehaviour {
     private GameObject magazineUI;
 
     public AudioClip selectSound;
+    public AudioClip hitSound;
+    public AudioClip deathSound;
     public GameObject revolver;
     public GameObject axe;
     public GameObject assaultRifle;
@@ -74,5 +77,15 @@ public class Player : MonoBehaviour {
         } else {
             magazineUI.transform.localScale = Vector3.zero;
         }
+    }
+
+    public void hit() {
+        audioSource.PlayOneShot(hitSound);
+    }
+
+    public void die() {
+        audioSource.PlayOneShot(deathSound);
+        Cursor.lockState = CursorLockMode.None;
+        SceneManager.LoadScene("GameOver");
     }
 }

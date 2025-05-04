@@ -11,8 +11,7 @@ public class MeleeEnemy : MonoBehaviour {
     public float hitCooldown = 1.0f;
     public bool readyToHit = true;
     public float damage = 5.0f;
-
-    private float lastHitTime = 0.0f;
+    public bool isDead = false;
 
     private NavMeshAgent agent;
     private GameObject player;
@@ -30,12 +29,14 @@ public class MeleeEnemy : MonoBehaviour {
     }
 
     void Update() {
-        if (!isAttacking) {
-            agent.SetDestination(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
-        }
-        
-        if (readyToHit && (Vector3.Distance(transform.position, player.transform.position) <= hitDetectionRange)) {
-            Attack();
+        if (!isDead) {
+            if (!isAttacking) {
+                agent.SetDestination(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
+            }
+
+            if (readyToHit && (Vector3.Distance(transform.position, player.transform.position) <= hitDetectionRange)) {
+                Attack();
+            }
         }
     }
 
@@ -44,6 +45,23 @@ public class MeleeEnemy : MonoBehaviour {
         animator.SetTrigger("Attack");
 
         StartCoroutine(AttackCooldown());
+    }
+
+    public void Die() {
+        agent.SetDestination(transform.position);
+        isDead = true;
+        animator.SetTrigger("Die");
+
+        if (gameObject.GetComponent<Zombie>() != null) {
+            gameObject.GetComponent<Zombie>().die();
+        }
+        StartCoroutine(DestroySelf());
+    }
+
+    private IEnumerator DestroySelf() {
+        yield return new WaitForSeconds(5.0f);
+
+        Destroy(gameObject);
     }
 
     private IEnumerator AttackCooldown() {

@@ -26,6 +26,7 @@ public class LifeController : MonoBehaviour {
         health -= damage;
 
         if (gameObject.name == "Player") {
+            gameObject.transform.GetComponent<Player>().hit();
             healthBarText.text = ((health / maxHealth) * 100) + "%";
             healthBar.SetHealth((int)health);
         }
@@ -36,11 +37,15 @@ public class LifeController : MonoBehaviour {
     }
 
     private void die() {
-        if (gameObject.name != "Player") {
-            Destroy(gameObject);
+        if (gameObject.name == "Player") {
+            // player death
+            gameObject.transform.GetComponent<Player>().die();
+        } else if (gameObject.GetComponent<MeleeEnemy>() != null) {
+            // enemy death
+            gameObject.GetComponent<MeleeEnemy>().Die();
         } else {
-            Cursor.lockState = CursorLockMode.None;
-            SceneManager.LoadScene("GameOver");
+            // any other death
+            Destroy(gameObject);
         }
     }
 }
