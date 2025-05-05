@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7586962248743867342}
+  - component: {fileID: 213921655970947807}
   m_Layer: 0
   m_Name: Bike
   m_TagString: Untagged
@@ -24,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1376001311808231027}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.6472185, y: 0.10618178, z: -0.091718405, w: -0.7492806}
+  m_LocalRotation: {x: 0.64721775, y: 0.1061835, z: -0.09171736, w: -0.74928117}
   m_LocalPosition: {x: -14.592, y: 3.193, z: 32.642}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
@@ -36,6 +37,27 @@ Transform:
   - {fileID: 5625060965355144470}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 288.11798, y: -63.312, z: 62.125}
+--- !u!65 &213921655970947807
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376001311808231027}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.3539071, y: 0.97675955, z: 0.52560455}
+  m_Center: {x: -0.0077151055, y: 0.15067542, z: -0.04248872}
 --- !u!1 &1670181859656687509
 GameObject:
   m_ObjectHideFlags: 0
