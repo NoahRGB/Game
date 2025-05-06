@@ -264,6 +264,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6797797868297868816}
   - component: {fileID: 8200077713646960099}
+  - component: {fileID: 6450271276750146309}
   m_Layer: 0
   m_Name: Ambulance
   m_TagString: Untagged
@@ -310,3 +311,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.014830149, y: 0.01469379, z: 0.029147532}
   m_Center: {x: -0.00016190889, y: -0.0035292967, z: 0.004059556}
+--- !u!114 &6450271276750146309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7930093210878521841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff

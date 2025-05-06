@@ -266,6 +266,7 @@ GameObject:
   m_Component:
   - component: {fileID: 545502027155489388}
   - component: {fileID: 735934941614870095}
+  - component: {fileID: 6658339881728683076}
   m_Layer: 0
   m_Name: Taxi
   m_TagString: Untagged
@@ -312,3 +313,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.7066107, y: 4.2436514, z: 1.2511003}
   m_Center: {x: 0.009716888, y: 0.11568975, z: 0.6623258}
+--- !u!114 &6658339881728683076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6272096508923606894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
