@@ -2572,7 +2572,7 @@ MonoBehaviour:
   slideDuration: 5000
   crouchHeight: 0.4
   gravity: -0.1
-  jumpForce: 15
+  jumpForce: 10
   floorCheckDistance: 1.2
   jumpSound: {fileID: 8300000, guid: 3bf26ac26b3c6784f89cf88265f13311, type: 3}
   playerBody: {fileID: 1683002187}
@@ -14655,7 +14655,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1765231189
 Transform:
   m_ObjectHideFlags: 0

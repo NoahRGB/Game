@@ -1626,6 +1626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioCooldown: 5
   deathSound: {fileID: 8300000, guid: 1ed5a8620e77cd44bac53b0277790e12, type: 3}
+  attackSound: {fileID: 8300000, guid: 36e16b514dfff2c45b75fd5283cfc89a, type: 3}
   clips:
   - {fileID: 8300000, guid: 22aba82e37759114987ed53ac1144b04, type: 3}
   - {fileID: 8300000, guid: cd481931da571d841ad3b3a4eddcf382, type: 3}

@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Zombie : MonoBehaviour {
+public class EnemySoundController : MonoBehaviour {
 
     public float audioCooldown = 5.0f;
     public AudioClip deathSound;
+    public AudioClip attackSound;
     public List<AudioClip> clips = new List<AudioClip>();
 
     private bool isDead = false;
@@ -29,5 +30,9 @@ public class Zombie : MonoBehaviour {
     public void die() {
         isDead = true;
         audioSource.PlayOneShot(deathSound);
+    }
+
+    public void attack() {
+        audioSource.PlayOneShot(attackSound);
     }
 }
