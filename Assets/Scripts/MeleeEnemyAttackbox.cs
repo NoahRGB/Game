@@ -15,7 +15,7 @@ public class MeleeEnemyAttackbox : MonoBehaviour {
         if (!parent.isDead && parent.isAttacking && other.tag == "Player") {
             LifeController lifeController = other.GetComponent<LifeController>();
             if (lifeController) {
-                lifeController.takeDamage(parent.damage);
+                lifeController.TakeDamage(parent.damage);
             }
         }
     }

@@ -22,6 +22,7 @@ public class Movement : MonoBehaviour {
     private GameObject currentItem;
     private Camera cam;
     private CapsuleCollider capsuleCollider;
+    private Player player;
 
     private bool isSprinting = false;
     private bool isCrouching = false;
@@ -36,6 +37,7 @@ public class Movement : MonoBehaviour {
         capsuleCollider = GetComponent<CapsuleCollider>();
         audioSource = GetComponent<AudioSource>();
         currentItem = GameObject.Find("Item");
+        player = GameObject.Find("Player").GetComponent<Player>();
         cam = Camera.main;
     }
 
@@ -44,43 +46,46 @@ public class Movement : MonoBehaviour {
         float verticalMove = Input.GetAxis("Vertical");
         isSprinting = Input.GetAxis("Sprint") > 0;
 
-        movementDir = transform.right * horizontalMove + transform.forward * verticalMove;
+        if (!player.inMenu) { // if player is not in a menu, then do movement
 
-        if (Input.GetKeyDown(KeyCode.LeftControl)) {
-            startCrouch();
-            if (horizontalMove != 0 || verticalMove != 0) {
-                startSlide();
+            movementDir = transform.right * horizontalMove + transform.forward * verticalMove;
+
+            if (Input.GetKeyDown(KeyCode.LeftControl)) {
+                startCrouch();
+                if (horizontalMove != 0 || verticalMove != 0) {
+                    startSlide();
+                }
             }
-        }
-        if (Input.GetKeyUp(KeyCode.LeftControl)) {
-            stopSlide();
-            stopCrouch();
-        }
-
-        if (isSliding) {
-            characterController.Move(movementDir * slideSpeed * Time.deltaTime);
-            slideTimer -= Time.fixedTime;
-
-            if (slideTimer <= 0) {
+            
+            if (Input.GetKeyUp(KeyCode.LeftControl)) {
                 stopSlide();
-            }
-        }
-
-        if (isGrounded()) {
-            if (velocity.y < 0) velocity.y = 0.0f; // building up gravity, so reset it
-            if (Input.GetButtonDown("Jump")) {
-                velocity.y = jumpForce;
-                audioSource.PlayOneShot(jumpSound);
+                stopCrouch();
             }
 
-        } else { 
-            velocity.y += gravity;
+            if (isSliding) {
+                characterController.Move(movementDir * slideSpeed * Time.deltaTime);
+                slideTimer -= Time.fixedTime;
+
+                if (slideTimer <= 0) {
+                    stopSlide();
+                }
+            }
+
+            if (isGrounded()) {
+                if (velocity.y < 0) velocity.y = 0.0f; // building up gravity, so reset it
+                if (Input.GetButtonDown("Jump")) {
+                    velocity.y = jumpForce;
+                    audioSource.PlayOneShot(jumpSound);
+                }
+
+            } else { 
+                velocity.y += gravity;
+            }
+
+            float currentSpeed = isSprinting ? sprintSpeed : isCrouching ? crouchSpeed : walkSpeed;
+            characterController.Move(movementDir * currentSpeed * Time.deltaTime);
+            characterController.Move(velocity * Time.deltaTime);
         }
-
-        float currentSpeed = isSprinting ? sprintSpeed : isCrouching ? crouchSpeed : walkSpeed;
-        characterController.Move(movementDir * currentSpeed * Time.deltaTime);
-        characterController.Move(velocity * Time.deltaTime);
-
     }
 
     void startSlide() {

@@ -1,15 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
-
-    private TMP_Text weaponText;
-    private AudioSource audioSource;
-    private GameObject magazineUI;
 
     public AudioClip selectSound;
     public AudioClip hitSound;
@@ -18,74 +15,54 @@ public class Player : MonoBehaviour {
     public GameObject axe;
     public GameObject assaultRifle;
     public GameObject grenade;
-    public GameObject currentItem;
 
-    private List<string> ammoWeapons = new List<string>() { "REVOLVER", "ASSAULT RIFLE" };
+    public bool hasLoaded = false;
+    public bool inMenu = false;
+
+    private AudioSource audioSource;
+    private TMP_Text hudCashText;
+    private TMP_Text shopCashText;
+    private float cash = 200.0f;
 
     void Start() {
-        magazineUI = GameObject.Find("MagazineUI");
-        weaponText = GameObject.Find("WeaponNameUI").GetComponent<TMP_Text>();
+        hudCashText = GameObject.Find("CashText").GetComponent<TMP_Text>();
+        shopCashText = GameObject.Find("ShopCashText").GetComponent<TMP_Text>();
         audioSource = GetComponent<AudioSource>();
 
-        checkForMissingItem();
+        UpdateCashUI();
     }
 
     void Update() {
-        checkForMissingItem();
-        if (Input.GetKeyDown(KeyCode.Alpha1)) {
-            if (currentItem.transform.name != "REVOLVER") {
-                switchWeapon("REVOLVER", revolver);
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2)) {
-            if (currentItem.transform.name != "AXE") {
-                switchWeapon("AXE", axe);
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3)) {
-            if (currentItem.transform.name != "ASSAULT RIFLE") {
-                switchWeapon("ASSAULT RIFLE", assaultRifle);
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha4)) {
-            if (currentItem.transform.name != "GRENADE") {
-                switchWeapon("GRENADE", grenade);
-            }
-        }
-
-        weaponText.text = currentItem.transform.name;
+        hasLoaded = true;
     }
 
-    void checkForMissingItem() {
-        Transform parentContainer = transform.Find("Item");
-        bool hasItem = parentContainer.transform.childCount != 0;
-        if (hasItem) {
-            currentItem = parentContainer.transform.GetChild(0).gameObject;
-        } else {
-            switchWeapon("REVOLVER", revolver);
-        }
-    }
-
-    void switchWeapon(string weaponName, GameObject weaponObject) {
-        audioSource.PlayOneShot(selectSound);
-        Destroy(currentItem);
-        currentItem = Instantiate(weaponObject, transform.Find("Item"));
-        currentItem.transform.name = weaponName;
-
-        if (ammoWeapons.Contains(weaponName)) {
-            magazineUI.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
-        } else {
-            magazineUI.transform.localScale = Vector3.zero;
-        }
-    }
-
-    public void hit() {
+    public void Hit() {
         audioSource.PlayOneShot(hitSound);
     }
 
-    public void die() {
+    public void Die() {
         audioSource.PlayOneShot(deathSound);
         Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene("GameOver");
+    }
+
+    public void SwitchWeapon() {
+        audioSource.PlayOneShot(selectSound);
+    }
+
+    public void AddCash(float newCash) {
+        cash += newCash;
+        UpdateCashUI();
+    }
+
+    public void RemoveCash(float cashToRemove) {
+        cash -= cashToRemove;
+        UpdateCashUI();
+    }
+
+    public float GetCash() { return cash; }
+
+    void UpdateCashUI() {
+        hudCashText.text = shopCashText.text = $"${cash}";
     }
 }

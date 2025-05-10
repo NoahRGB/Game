@@ -5,7 +5,6 @@ using UnityEngine;
 public class Cam : MonoBehaviour {
     public float sensitivity;
     public GameObject player;
-    
 
     private GameObject item;
     private float xRot = 0.0f;
@@ -14,9 +13,12 @@ public class Cam : MonoBehaviour {
     void Start() {
         Cursor.lockState = CursorLockMode.Locked;
         item = GameObject.Find("Item");
+
+        player = GameObject.Find("Player");
     }
 
     void Update() {
+        bool followPlayer = !player.GetComponent<Player>().inMenu;
         float mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
 
@@ -25,9 +27,11 @@ public class Cam : MonoBehaviour {
 
         yRot += mouseX;
 
-        transform.localRotation = Quaternion.Euler(xRot, 0.0f, 0.0f);
-        item.transform.localRotation = Quaternion.Euler(xRot, 0.0f, 0.0f);
-        //item.transform.Rotate(xRot, yRot, 0.0f);
-        player.transform.localRotation = Quaternion.Euler(0.0f, yRot, 0.0f);
+        if (followPlayer) {
+            transform.localRotation = Quaternion.Euler(xRot, 0.0f, 0.0f);
+            item.transform.localRotation = Quaternion.Euler(xRot, 0.0f, 0.0f);
+            //item.transform.Rotate(xRot, yRot, 0.0f);
+            player.transform.localRotation = Quaternion.Euler(0.0f, yRot, 0.0f);
+        }
     }
 }

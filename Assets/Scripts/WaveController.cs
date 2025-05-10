@@ -9,38 +9,37 @@ public class WaveController : MonoBehaviour {
     public GameObject enemy;
     public int maxWaves = 2;
 
-    private Goal goal;
-    private GameObject enemiesContainer;
-
     private int waveNumber = 0;
     private int currentMaxEnemyCount = 2;
     private int enemiesRemaining = 0;
-    private bool roundEnded = false;
+    private bool levelEnded = false;
 
+    private Goal goal;
+    private GameObject enemiesContainer;
     private TMP_Text waveText;
     private TMP_Text enemiesText;
+    private GameObject hud;
+    private GameObject shop;
+    private Player player;
 
     void Start() {
         goal = GameObject.Find("Goal").GetComponent<Goal>();
         enemiesContainer = GameObject.Find("Enemies");
         waveText = GameObject.Find("WaveNumberUI").GetComponent<TMP_Text>();
         enemiesText = GameObject.Find("EnemiesRemainingUI").GetComponent<TMP_Text>();
+        player = GameObject.Find("Player").GetComponent<Player>();
+
+        hud = GameObject.Find("UI");
+        shop = GameObject.Find("Shop");
     }
 
     void Update() {
 
-        if (!roundEnded) {
+        if (!levelEnded) {
             enemiesRemaining = enemiesContainer.transform.childCount;
 
             if (enemiesRemaining == 0) {
-                nextWave();
-            }
-
-            if (Input.GetKeyDown(KeyCode.L)) {
-                goal.enableGoal();
-            }
-            if (Input.GetKeyDown(KeyCode.K)) {
-                goal.disableGoal();
+                EnableShop();
             }
 
             enemiesText.text = $"{enemiesRemaining} enemies remaining";
@@ -48,9 +47,24 @@ public class WaveController : MonoBehaviour {
         }
     }
 
-    void nextWave() {
+    void EnableShop() {
+        Cursor.lockState = CursorLockMode.None;
+        player.inMenu = true;
+        hud.SetActive(false);
+        shop.SetActive(true);
+    }
+
+    void DisableShop() {
+        Cursor.lockState = CursorLockMode.Locked;
+        player.inMenu = false;
+        hud.SetActive(true);
+        shop.SetActive(false);
+    }
+
+    public void NextWave() {
+        DisableShop();
         if (waveNumber == maxWaves) {
-            endLevel();
+            EndLevel();
         } else {
             waveNumber++;
             currentMaxEnemyCount += 5;
@@ -71,8 +85,8 @@ public class WaveController : MonoBehaviour {
 
     }
 
-    void endLevel() {
-        roundEnded = true;
+    void EndLevel() {
+        levelEnded = true;
         goal.enableGoal();
     }
 }

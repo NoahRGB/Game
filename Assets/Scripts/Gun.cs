@@ -15,6 +15,7 @@ public class Gun : MonoBehaviour {
     private Animator animator;
     private Camera cam;
     private TMP_Text ammoText;
+    private Player player;
 
     public int magazineCapacity = 6;
     public float shootDelay = 1.0f;
@@ -29,6 +30,8 @@ public class Gun : MonoBehaviour {
         animator = GetComponent<Animator>();
         ammoText = GameObject.Find("AmmoCountUI").GetComponent<TMP_Text>();
         audioSource = GetComponent<AudioSource>();
+        player = GameObject.Find("Player").GetComponent<Player>();
+
         UpdateUI();
     }
 
@@ -36,17 +39,20 @@ public class Gun : MonoBehaviour {
         animator.SetBool("Shoot", false);
         animator.SetBool("Reload", false);
 
-        if (Input.GetMouseButton(0) && Time.time - lastShotTime >= shootDelay) {
-            if (currentMagazine != 0) {
-                currentMagazine--;
-                Shoot();
-                lastShotTime = Time.time;
+        if (!player.inMenu) {
+            if (Input.GetMouseButton(0) && Time.time - lastShotTime >= shootDelay) {
+                if (currentMagazine != 0) {
+                    currentMagazine--;
+                    Shoot();
+                    lastShotTime = Time.time;
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.R)) {
+                Reload();
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.R)) {
-            Reload();
-        }
     }
 
     void Reload() {
@@ -68,7 +74,7 @@ public class Gun : MonoBehaviour {
         RaycastHit hit;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range)) {
 
-            if (hit.transform.GetComponent<MeleeEnemy>() != null) {
+            if (hit.transform.tag == "Enemy") {
                 if (hit.transform.GetComponent<MeleeEnemy>().isDead) return;
             }
 
@@ -78,7 +84,7 @@ public class Gun : MonoBehaviour {
             LifeController lifeController = hit.transform.GetComponent<LifeController>();
             if (lifeController != null) {
                 audioSource.PlayOneShot(hitmarkerSound);
-                lifeController.takeDamage(damage);
+                lifeController.TakeDamage(damage);
             }
         }
 

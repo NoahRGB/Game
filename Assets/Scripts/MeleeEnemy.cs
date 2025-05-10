@@ -12,6 +12,7 @@ public class MeleeEnemy : MonoBehaviour {
     public bool readyToHit = true;
     public float damage = 5.0f;
     public bool isDead = false;
+    public float prize = 10.0f;
 
     private NavMeshAgent agent;
     private GameObject player;

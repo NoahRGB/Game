@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Axe : MonoBehaviour {
@@ -20,6 +19,7 @@ public class Axe : MonoBehaviour {
     private AudioSource audioSource;
     private Animator animator;
     private TMP_Text ammoText;
+    private Player player;
 
     void Start() { 
         cooldowns = new Dictionary<GameObject, float>();
@@ -27,12 +27,14 @@ public class Axe : MonoBehaviour {
         ammoText = GameObject.Find("AmmoCountUI").GetComponent<TMP_Text>();
         ammoText.text = "";
         audioSource = GetComponent<AudioSource>();
+        player = GameObject.Find("Player").GetComponent<Player>();
     }
 
     void Update() {
+
         freeCooldowns();
 
-        if (Input.GetMouseButtonDown(0)) {
+        if (!player.inMenu && Input.GetMouseButtonDown(0)) {
             if (!isAttacking) {
 
                 if (!audioSource.isPlaying) {
@@ -69,7 +71,7 @@ public class Axe : MonoBehaviour {
                 if (isAttacking) {
                     if (!cooldowns.ContainsKey(collision.gameObject)) {
                         audioSource.PlayOneShot(slashSound);
-                        lifeController.takeDamage(damage);
+                        lifeController.TakeDamage(damage);
                         cooldowns[collision.gameObject] = Time.time;
                     }
 
