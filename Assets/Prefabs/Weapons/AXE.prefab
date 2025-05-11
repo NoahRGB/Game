@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5017350784116841591}
   - component: {fileID: 8462848820735278914}
   - component: {fileID: 578953855132431489}
+  - component: {fileID: -6567241168176378584}
   m_Layer: 0
   m_Name: AXE
   m_TagString: Untagged
@@ -273,3 +274,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-6567241168176378584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7952211761302199821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfeca28d5b222a04e8c3505e9dadbb16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shopIcon: {fileID: 3105283732211619327, guid: c4624adf03fd5644fa4b1a1cf5d91eaf, type: 3}
+  price: 10

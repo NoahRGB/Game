@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class Axe : MonoBehaviour {
 
-    public AudioClip swingSound;
+    public AudioClip swingSound1;
+    public AudioClip swingSound2;
+    public AudioClip swingSound3;
     public AudioClip slashSound;
     public float damage = 10.0f;
     public float attackCooldown = 1.0f;
@@ -37,17 +39,21 @@ public class Axe : MonoBehaviour {
         if (!player.inMenu && Input.GetMouseButtonDown(0)) {
             if (!isAttacking) {
 
-                if (!audioSource.isPlaying) {
-                    audioSource.PlayOneShot(swingSound);
-                }
+                audioSource.PlayOneShot(swingSound1);
                 animator.SetTrigger("Attack");
-                StartCoroutine(resetAttackCooldown());
+                // StartCoroutine(resetAttackCooldown());
+
+            } else if (isAttacking) {
+                animator.SetTrigger("Combo");
+                audioSource.PlayOneShot(swingSound2);
             }
         }
     }
 
     IEnumerator resetAttackCooldown() {
+        canAttack = false;
         yield return new WaitForSeconds(attackCooldown);
+        canAttack = true;
     }
 
     void freeCooldowns() {

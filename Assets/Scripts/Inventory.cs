@@ -27,6 +27,7 @@ public class Inventory : MonoBehaviour {
 
         currentItems.Add(itemContainer.GetChild(0).gameObject.name);
         currentItem = itemContainer.GetChild(0).gameObject.name;
+        ToggleAmmoUI();
     }
 
     void Update() {
@@ -68,14 +69,18 @@ public class Inventory : MonoBehaviour {
         Instantiate(allItems.Find(item => item.name == weaponName), itemContainer);
         currentItem = weaponName;
 
-        if (ammoWeapons.Contains(weaponName)) {
-            magazineUI.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
-        } else {
-            magazineUI.transform.localScale = Vector3.zero;
-        }
+        ToggleAmmoUI();
     }
 
     public void AddNewWeapon(GameObject weaponToAdd) {
         currentItems.Add(weaponToAdd.name);
+    }
+
+    void ToggleAmmoUI() {
+        if (ammoWeapons.Contains(currentItem)) {
+            magazineUI.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+        } else {
+            magazineUI.transform.localScale = Vector3.zero;
+        }
     }
 }

@@ -23,7 +23,18 @@ public class ShopCard : MonoBehaviour {
     void Start() {
         player = GameObject.Find("Player").GetComponent<Player>();
         playerInventory = GameObject.Find("Player").GetComponent<Inventory>();
+        selectButtonUI.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(Purchase);
+    }
 
+    public void Purchase() {
+        // if player has enough money
+        if (player.GetCash() >= itemPrice) {
+            player.RemoveCash(itemPrice);
+            playerInventory.AddNewWeapon(playerInventory.allItems.Find(item => item.name == itemName));
+        }
+    }
+
+    public void InitialiseCard(string name, float price, GameObject icon) {
         foreach (Transform child in transform) {
             if (child.name.Contains("Name")) {
                 nameUI = child.GetComponent<TMP_Text>();
@@ -34,18 +45,13 @@ public class ShopCard : MonoBehaviour {
             }
         }
 
-        itemName = nameUI.text.ToUpper();
-        itemPrice = float.Parse(costUI.text.Substring(1));
+        Instantiate(icon, transform);
 
-        selectButtonUI.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(Purchase);
-    }
+        nameUI.text = name;
+        costUI.text = $"${price}";
 
-    public void Purchase() {
-        // if player has enough money
-        if (player.GetCash() >= itemPrice) {
-            player.RemoveCash(itemPrice);
-            playerInventory.AddNewWeapon(playerInventory.allItems.Find(item => item.name == itemName));
-        }
+        itemName = name.ToUpper();
+        itemPrice = price;
     }
 
     void Update() {
@@ -63,4 +69,5 @@ public class ShopCard : MonoBehaviour {
         selectButtonUI.GetComponent<UnityEngine.UI.Image>().color = Color.red;
         selectButtonUI.GetComponentInChildren<TMP_Text>().text = "OWNED";
     }
+
 }

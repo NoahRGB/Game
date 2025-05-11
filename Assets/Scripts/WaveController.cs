@@ -8,6 +8,7 @@ public class WaveController : MonoBehaviour {
  
     public GameObject enemy;
     public int maxWaves = 2;
+    public bool disableWaves = true;
 
     private int waveNumber = 0;
     private int currentMaxEnemyCount = 2;
@@ -34,16 +35,19 @@ public class WaveController : MonoBehaviour {
     }
 
     void Update() {
+        if (!disableWaves) {
+            if (!levelEnded) {
+                enemiesRemaining = enemiesContainer.transform.childCount;
 
-        if (!levelEnded) {
-            enemiesRemaining = enemiesContainer.transform.childCount;
+                if (enemiesRemaining == 0) {
+                    EnableShop();
+                }
 
-            if (enemiesRemaining == 0) {
-                EnableShop();
+                enemiesText.text = $"{enemiesRemaining}";
+                waveText.text = $"Wave\n{waveNumber} / {maxWaves}";
             }
-
-            enemiesText.text = $"{enemiesRemaining} enemies remaining";
-            waveText.text = $"Wave   {waveNumber} / {maxWaves}";
+        } else {
+            DisableShop();
         }
     }
 

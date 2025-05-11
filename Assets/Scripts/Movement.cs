@@ -13,6 +13,10 @@ public class Movement : MonoBehaviour {
     public float gravity = -9.8f;
     public float jumpForce = 100.0f;
     public float floorCheckDistance = 1.2f;
+    public float maxStamina = 100.0f;
+    public float currentStamina = 100.0f;
+    public float staminaDrainRate = 1.0f;
+    public float staminaRechargeRate = 1.0f;
 
     public AudioClip jumpSound;
 
@@ -23,6 +27,7 @@ public class Movement : MonoBehaviour {
     private Camera cam;
     private CapsuleCollider capsuleCollider;
     private Player player;
+    private HealthBar staminaBar;
 
     private bool isSprinting = false;
     private bool isCrouching = false;
@@ -39,6 +44,9 @@ public class Movement : MonoBehaviour {
         currentItem = GameObject.Find("Item");
         player = GameObject.Find("Player").GetComponent<Player>();
         cam = Camera.main;
+        staminaBar = GameObject.Find("StaminaBar").GetComponent<HealthBar>();
+
+        staminaBar.SetMaxHealth((int)maxStamina);
     }
 
     void Update() {
@@ -82,10 +90,23 @@ public class Movement : MonoBehaviour {
                 velocity.y += gravity;
             }
 
-            float currentSpeed = isSprinting ? sprintSpeed : isCrouching ? crouchSpeed : walkSpeed;
+            float currentSpeed = (isSprinting && isGrounded()) ? sprintSpeed : isCrouching ? crouchSpeed : walkSpeed;
+
+            if (currentSpeed == sprintSpeed) {
+                currentStamina -= staminaDrainRate;
+                if (currentStamina < 0) {
+                    currentStamina = 0;
+                    currentSpeed = walkSpeed;
+                }
+            } else if (currentStamina < maxStamina) {
+                currentStamina += staminaRechargeRate;
+            }
+
             characterController.Move(movementDir * currentSpeed * Time.deltaTime);
             characterController.Move(velocity * Time.deltaTime);
         }
+
+        staminaBar.SetHealth((int)currentStamina);
     }
 
     void startSlide() {
@@ -99,7 +120,9 @@ public class Movement : MonoBehaviour {
 
     void startCrouch() {
         isCrouching = true;
+        transform.Translate(new Vector3(0.0f, -crouchHeight, 0.0f));
         playerBody.transform.localScale = new Vector3(transform.localScale.x, crouchHeight, transform.localScale.z);
+
 
         cam.transform.Translate(0.0f, -crouchHeight, 0.0f);
         currentItem.transform.Translate(0.0f, -crouchHeight, 0.0f);
@@ -107,7 +130,6 @@ public class Movement : MonoBehaviour {
         characterController.height = 0.8f;
         capsuleCollider.height = 0.8f;
         floorCheckDistance = 0.2f;
-
     }
     
     void stopCrouch() {

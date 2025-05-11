@@ -4902,6 +4902,7 @@ GameObject:
   - component: {fileID: 753787103019825546}
   - component: {fileID: 5595070289737297182}
   - component: {fileID: 8942272710875904903}
+  - component: {fileID: -1996592536720196503}
   m_Layer: 0
   m_Name: REVOLVER
   m_TagString: Untagged
@@ -5115,3 +5116,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-1996592536720196503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8224458751315120797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfeca28d5b222a04e8c3505e9dadbb16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shopIcon: {fileID: 2926429811785092547, guid: f32da4296fd40524890da7e9f37c34a2, type: 3}
+  price: 150
