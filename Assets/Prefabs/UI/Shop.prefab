@@ -694,6 +694,7 @@ GameObject:
   - component: {fileID: 4927652693067180293}
   - component: {fileID: 4815736848211903532}
   - component: {fileID: 5676813972659363398}
+  - component: {fileID: 4066304197992035817}
   m_Layer: 5
   m_Name: Shop
   m_TagString: Untagged
@@ -797,6 +798,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardPrefab: {fileID: 7686843094770658130, guid: 4c7428443699e2f4391b867bc4eac482, type: 3}
+--- !u!114 &4066304197992035817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6885467872419718473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 163ec27c231193b41935920249ca00be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8119294642889099690
 GameObject:
   m_ObjectHideFlags: 0

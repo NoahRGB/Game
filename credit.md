@@ -11,3 +11,4 @@
 - [Player hit](https://freesound.org/people/Under7dude/sounds/163441/), [Player death](https://freesound.org/people/Under7dude/sounds/163442/)
 - [Skybox](https://assetstore.unity.com/packages/2d/textures-materials/sky/skybox-series-free-103633?srsltid=AfmBOooRkL2dAkzPZzKEqpMHOoqSIZd9IHya_zm9YDgFAMcESxPZoSL7)
 - Wolf sounds [1](https://freesound.org/people/y89312/sounds/139901/), [2](https://freesound.org/people/deleted_user_3424813/sounds/260776/), [3](https://freesound.org/people/itiman/sounds/696285/)
+- [Purchase sound](https://freesound.org/s/75235/)

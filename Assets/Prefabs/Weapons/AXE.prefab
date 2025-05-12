@@ -124,12 +124,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d2ab5e901d3237458f9056ab3dcbde1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swingSound: {fileID: 8300000, guid: bd33442a94db2cd4ea7a56883aad78f7, type: 3}
+  swingSound1: {fileID: 8300000, guid: bd33442a94db2cd4ea7a56883aad78f7, type: 3}
+  swingSound2: {fileID: 8300000, guid: 3c8a8835b00fa5647b1b1b12a386434f, type: 3}
+  swingSound3: {fileID: 8300000, guid: 1d86fa3adb1f0944aa7f74ebe8877191, type: 3}
   slashSound: {fileID: 8300000, guid: 7353259d2dfc79c47b3bfdc3d75a6d0c, type: 3}
   damage: 10
   attackCooldown: 1
   isAttacking: 0
-  canAttack: 1
+  combo1Ready: 1
+  combo2Ready: 1
+  combo3Ready: 1
 --- !u!65 &5017350784116841591
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -145,12 +149,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.9564366, y: 2.6905274, z: 2.7552202}
-  m_Center: {x: 1.0408978, y: 1.3125155, z: -0.11228055}
+  m_Size: {x: 1.4732795, y: 1.400157, z: 0.7417352}
+  m_Center: {x: 0.66863304, y: 1.9577007, z: 0.015934378}
 --- !u!54 &8462848820735278914
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -177,7 +181,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 3
 --- !u!82 &578953855132431489
 AudioSource:
   m_ObjectHideFlags: 0

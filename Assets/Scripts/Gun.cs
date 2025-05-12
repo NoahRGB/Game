@@ -18,11 +18,13 @@ public class Gun : MonoBehaviour {
     private Player player;
 
     public int magazineCapacity = 6;
-    public float shootDelay = 1.0f;
+    private int currentMagazine = 6;
     public float range = 100.0f;
     public float damage = 5.0f;
-    private float lastShotTime = 0.0f;
-    private int currentMagazine = 6;
+    public float shootCooldown = 1.0f;
+    public bool canShoot = true;
+    public float reloadCooldown = 0.5f;
+    public bool canReload = true;
 
     void Start() {
         currentMagazine = magazineCapacity;
@@ -40,28 +42,41 @@ public class Gun : MonoBehaviour {
         animator.SetBool("Reload", false);
 
         if (!player.inMenu) {
-            if (Input.GetMouseButton(0) && Time.time - lastShotTime >= shootDelay) {
+            if (Input.GetMouseButton(0) && canShoot) {
                 if (currentMagazine != 0) {
                     currentMagazine--;
                     Shoot();
-                    lastShotTime = Time.time;
+                    StartCoroutine(resetShootCooldown());
+                    StartCoroutine(resetReloadCooldown());
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.R)) {
-                Reload();
+            if (Input.GetKeyDown(KeyCode.R) && canReload) {
+                animator.SetBool("Reload", true);
             }
         }
 
     }
 
-    void Reload() {
+    IEnumerator resetShootCooldown() {
+        canShoot = false;
+        yield return new WaitForSeconds(shootCooldown);
+        canShoot = true;
+    }
+    
+    IEnumerator resetReloadCooldown() {
+        canReload = false;
+        yield return new WaitForSeconds(shootCooldown);
+        canReload = true;
+    }
+
+    public void Reload() {
         currentMagazine = magazineCapacity;
-        animator.SetBool("Reload", true);
         if (audioSource != null) {
             audioSource.PlayOneShot(reloadSound);
         }
         UpdateUI();
+        StartCoroutine(resetReloadCooldown());
     }
 
     void Shoot() {
@@ -74,15 +89,13 @@ public class Gun : MonoBehaviour {
         RaycastHit hit;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range)) {
 
-            if (hit.transform.tag == "Enemy") {
-                if (hit.transform.GetComponent<MeleeEnemy>().isDead) return;
-            }
-
+            // create hit particle effect and destroy it 2 seconds later
             GameObject effect = Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
             Destroy(effect, 2.0f);
 
+            // take away health if there is a valid life controller and enemy is not dead
             LifeController lifeController = hit.transform.GetComponent<LifeController>();
-            if (lifeController != null) {
+            if (lifeController != null && lifeController.health > 0) {
                 audioSource.PlayOneShot(hitmarkerSound);
                 lifeController.TakeDamage(damage);
             }

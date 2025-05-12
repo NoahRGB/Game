@@ -12,9 +12,11 @@ public class ShopCard : MonoBehaviour {
     public string itemName;
     public float itemPrice;
     public bool isAlreadyOwned = false;
+    public AudioClip purchaseSound;
 
     private Player player;
     private Inventory playerInventory;
+    private AudioSource audioSource;
     
     private TMP_Text nameUI;
     private TMP_Text costUI;
@@ -24,13 +26,16 @@ public class ShopCard : MonoBehaviour {
         player = GameObject.Find("Player").GetComponent<Player>();
         playerInventory = GameObject.Find("Player").GetComponent<Inventory>();
         selectButtonUI.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(Purchase);
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void Purchase() {
+        Debug.Log("Clicked button");
         // if player has enough money
         if (player.GetCash() >= itemPrice) {
             player.RemoveCash(itemPrice);
             playerInventory.AddNewWeapon(playerInventory.allItems.Find(item => item.name == itemName));
+            audioSource.PlayOneShot(purchaseSound);
         }
     }
 

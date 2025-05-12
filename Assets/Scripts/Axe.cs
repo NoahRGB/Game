@@ -13,10 +13,11 @@ public class Axe : MonoBehaviour {
     public float attackCooldown = 1.0f;
 
     public bool isAttacking = false;
-    public bool canAttack = true;
+    public bool combo1Ready = true;
+    public bool combo2Ready = true;
+    public bool combo3Ready = true;
 
     private float iTime = 0.5f;
-    [SerializeField] private Dictionary<GameObject, float> cooldowns;
 
     private AudioSource audioSource;
     private Animator animator;
@@ -24,7 +25,6 @@ public class Axe : MonoBehaviour {
     private Player player;
 
     void Start() { 
-        cooldowns = new Dictionary<GameObject, float>();
         animator = GetComponent<Animator>();
         ammoText = GameObject.Find("AmmoCountUI").GetComponent<TMP_Text>();
         ammoText.text = "";
@@ -34,55 +34,68 @@ public class Axe : MonoBehaviour {
 
     void Update() {
 
-        freeCooldowns();
-
         if (!player.inMenu && Input.GetMouseButtonDown(0)) {
-            if (!isAttacking) {
 
-                audioSource.PlayOneShot(swingSound1);
+            // allows the player to use 1, 2 or 3 attacks in a row
+            if (combo1Ready && combo2Ready && combo3Ready && !isAttacking) {
+                // assume that the player just wants 1 attack, reset combos
+                animator.SetBool("Combo1", false);
+                animator.SetBool("Combo2", false);
                 animator.SetTrigger("Attack");
-                // StartCoroutine(resetAttackCooldown());
 
-            } else if (isAttacking) {
-                animator.SetTrigger("Combo");
-                audioSource.PlayOneShot(swingSound2);
+            } else if (combo2Ready && combo3Ready && isAttacking && !animator.GetBool("Combo1")) {
+                // if the player is attacking and hasn't already queued a combo, then start attack 2
+                animator.SetBool("Combo1", true);
+
+            } else if (combo3Ready && isAttacking && !animator.GetBool("Combo2")) {
+                // if the player is attacking and hasn't already queued a third combo, then start attack 3
+                animator.SetBool("Combo2", true);
             }
         }
     }
 
-    IEnumerator resetAttackCooldown() {
-        canAttack = false;
-        yield return new WaitForSeconds(attackCooldown);
-        canAttack = true;
-    }
-
-    void freeCooldowns() {
-        List<GameObject> toDelete = new List<GameObject>();
-        foreach (GameObject key in cooldowns.Keys) {
-            if (Time.time - cooldowns[key] >= iTime) {
-                toDelete.Add(key);
-                continue;
-            }
-        }
-        foreach (GameObject key in toDelete) {
-            cooldowns.Remove(key);
-        }
-    }
-
-    void OnCollisionEnter(Collision collision) {
+    void OnTriggerEnter(Collider collision) {
         if (collision.gameObject.tag == "Enemy") {
             LifeController lifeController = collision.transform.GetComponent<LifeController>();
-
             if (lifeController != null) {
-                if (isAttacking) {
-                    if (!cooldowns.ContainsKey(collision.gameObject)) {
-                        audioSource.PlayOneShot(slashSound);
-                        lifeController.TakeDamage(damage);
-                        cooldowns[collision.gameObject] = Time.time;
-                    }
-
+                if (isAttacking && lifeController.health > 0) {
+                    audioSource.PlayOneShot(slashSound);
+                    lifeController.TakeDamage(damage);
                 }
             }
         }
+    }
+
+    public void BeginSwing1() { 
+        StartCoroutine(resetCombo1Attack());
+        audioSource.PlayOneShot(swingSound1); 
+    }
+
+    public void BeginSwing2() { 
+        StartCoroutine(resetCombo2Attack());
+        audioSource.PlayOneShot(swingSound2); 
+    }
+
+    public void BeginSwing3() {
+        StartCoroutine(resetCombo3Attack());
+        audioSource.PlayOneShot(swingSound3); 
+    }
+
+    IEnumerator resetCombo1Attack() {
+        combo1Ready = false;
+        yield return new WaitForSeconds(attackCooldown);
+        combo1Ready = true;
+    }
+
+    IEnumerator resetCombo2Attack() {
+        combo2Ready = false;
+        yield return new WaitForSeconds(attackCooldown);
+        combo2Ready = true;
+    }
+
+    IEnumerator resetCombo3Attack() {
+        combo3Ready = false;
+        yield return new WaitForSeconds(attackCooldown);
+        combo3Ready = true;
     }
 }

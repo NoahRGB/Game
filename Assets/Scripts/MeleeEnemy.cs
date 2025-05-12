@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class MeleeEnemy : MonoBehaviour {
 
+    public bool isBasic = false;
     public bool isRunner = true;
     public bool isAttacking = false;
     public float hitDetectionRange = 5.0f;
@@ -25,14 +26,14 @@ public class MeleeEnemy : MonoBehaviour {
         animator = GetComponent<Animator>();
         enemySoundController = GetComponent<EnemySoundController>();
 
-        if (animator != null) {
+        if (animator != null && !isBasic) {
             animator.SetBool("Running", isRunner);
             animator.SetBool("Walking", !isRunner);
         }
     }
 
     void Update() {
-        if (!isDead) {
+        if (!isDead && !isBasic) {
             if (!isAttacking) {
                 agent.SetDestination(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
             }

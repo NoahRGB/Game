@@ -11,7 +11,7 @@ public class WaveController : MonoBehaviour {
     public bool disableWaves = true;
 
     private int waveNumber = 0;
-    private int currentMaxEnemyCount = 2;
+    private int currentMaxEnemyCount = 0;
     private int enemiesRemaining = 0;
     private bool levelEnded = false;
 
@@ -51,6 +51,12 @@ public class WaveController : MonoBehaviour {
         }
     }
 
+    public void NextLevel() {
+        EnableShop();
+        player.ResetPosition();
+        goal.SetupNewLevel();
+    }
+
     void EnableShop() {
         Cursor.lockState = CursorLockMode.None;
         player.inMenu = true;
@@ -71,7 +77,7 @@ public class WaveController : MonoBehaviour {
             EndLevel();
         } else {
             waveNumber++;
-            currentMaxEnemyCount += 5;
+            currentMaxEnemyCount += 0;
             for (int i = 0; i < currentMaxEnemyCount; i++) {
 
                 // generate a random point in the area

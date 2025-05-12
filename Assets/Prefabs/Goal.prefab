@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 985776283090259868}
   - component: {fileID: 551016793674160862}
   - component: {fileID: 6403063419731438182}
+  - component: {fileID: 4786782889344566300}
   m_Layer: 0
   m_Name: Goal
   m_TagString: Untagged
@@ -119,6 +120,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d467282b4ccfed14883f8cc2e14b9d32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelOrder:
+  - Level 1
+  - Level 2
+  - Level 1
+  currentLevel: -1
   sceneName: Level 2
 --- !u!65 &6403063419731438182
 BoxCollider:
@@ -141,3 +147,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.013966722, y: 0.0074150646, z: 0.017889638}
   m_Center: {x: 0.0013076258, y: 0.000083482664, z: -0.0022635483}
+--- !u!114 &4786782889344566300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5458384380775970717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 163ec27c231193b41935920249ca00be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

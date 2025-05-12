@@ -28,8 +28,11 @@ public class Player : MonoBehaviour {
         hudCashText = GameObject.Find("CashText").GetComponent<TMP_Text>();
         shopCashText = GameObject.Find("ShopCashText").GetComponent<TMP_Text>();
         audioSource = GetComponent<AudioSource>();
-
         UpdateCashUI();
+    }
+
+    public void ResetPosition() {
+        gameObject.transform.localPosition = new Vector3(55.0f, 3.2f, 11.0f);
     }
 
     void Update() {

@@ -27,7 +27,6 @@ public class Shop : MonoBehaviour {
             GameObject chosenItem = playerInventory.allItems[0];
             while (chosenItems.Contains(chosenItem)) {
                 chosenItem = playerInventory.allItems[Random.Range(0, playerInventory.allItems.Count)];
-                Debug.Log($"{chosenItem}, {chosenItems.Count}");
             }
             chosenItems.Add(chosenItem);
         }
