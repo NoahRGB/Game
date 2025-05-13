@@ -9,6 +9,8 @@ public class Inventory : MonoBehaviour {
 
     public List<GameObject> allItems = new List<GameObject>();
     public List<string> currentItems = new List<string>();
+    public Dictionary<string, int> ammoCounts = new Dictionary<string, int>();
+    public Dictionary<string, int> magazineCounts = new Dictionary<string, int>();
     public string currentItem;
 
     Transform itemContainer; 
@@ -62,18 +64,45 @@ public class Inventory : MonoBehaviour {
         weaponText.text = currentItem;
     }
 
+    public void SetAmmo(string weaponName, int newMagazine, int newAmmo) {
+        magazineCounts[weaponName] = newMagazine;
+        ammoCounts[weaponName] = newAmmo;
+    }
+
     void SwitchWeapon(string weaponName) {
         player.SwitchWeapon();
 
         Destroy(itemContainer.GetChild(0).gameObject);
-        Instantiate(allItems.Find(item => item.name == weaponName), itemContainer);
+        GameObject weapon = Instantiate(allItems.Find(item => item.name == weaponName), itemContainer);
+        weapon.name = weaponName;
         currentItem = weaponName;
+
+        Gun gunObj = weapon.GetComponent<Gun>();
+        if (gunObj != null) {
+            gunObj.SetupAmmo(magazineCounts[weaponName], ammoCounts[weaponName]);
+        }
+
+        Grenade grenadeObj = weapon.GetComponent<Grenade>();
+        if (grenadeObj != null) {
+            grenadeObj.SetupAmmo(ammoCounts[weaponName]);
+        }
 
         ToggleAmmoUI();
     }
 
     public void AddNewWeapon(GameObject weaponToAdd) {
         currentItems.Add(weaponToAdd.name);
+
+        if (weaponToAdd.name == "ASSAULT RIFLE") {
+            ammoCounts[weaponToAdd.name] = 50;
+            magazineCounts[weaponToAdd.name] = 30;
+        } else if (weaponToAdd.name == "REVOLVER") {
+            ammoCounts[weaponToAdd.name] = 40;
+            magazineCounts[weaponToAdd.name] = 6;
+        } else if (weaponToAdd.name == "GRENADE") {
+            ammoCounts[weaponToAdd.name] = 3;
+            magazineCounts[weaponToAdd.name] = 1;
+        }
     }
 
     void ToggleAmmoUI() {

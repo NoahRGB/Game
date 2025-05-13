@@ -109,10 +109,14 @@ MonoBehaviour:
   shootSound: {fileID: 8300000, guid: 007e687c4952f0e468526358657d6b8e, type: 3}
   reloadSound: {fileID: 8300000, guid: 10649ac597bcae448a8ce4cd5347a887, type: 3}
   hitmarkerSound: {fileID: 8300000, guid: 89ebd2d75c839e24685d8e52582b2d9b, type: 3}
+  emptyShootSound: {fileID: 8300000, guid: 97c64d39265fb1743a04220d9a1818eb, type: 3}
   magazineCapacity: 30
-  shootDelay: 0.3
   range: 100
-  damage: 5
+  damage: 2
+  shootCooldown: 0.2
+  canShoot: 1
+  reloadCooldown: 1
+  canReload: 1
 --- !u!95 &8588614763798044788
 Animator:
   serializedVersion: 5

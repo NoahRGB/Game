@@ -1,8 +1,8 @@
 
 - [3D models](https://quaternius.com/)
 - [3D Animations](https://www.mixamo.com/)
-- [Explosion particle effect](https://assetstore.unity.com/packages/vfx/particles/particle-pack-127325), [Explosion sound](https://assetstore.unity.com/packages/audio/sound-fx/shooting-sound-177096)
-- [Gunshot sound](https://freesound.org/s/369528/), [Reload sound](https://freesound.org/s/585256/) 
+- [Explosion particle effect](https://assetstore.unity.com/packages/vfx/particles/particle-pack-127325), [Explosion sound](https://assetstore.unity.com/packages/audio/sound-fx/shooting-sound-177096), [Explosion Sound 2](https://freesound.org/s/47252/)
+- [Gunshot sound](https://freesound.org/s/369528/), [Reload sound](https://freesound.org/s/585256/), [Empty shoot sound](https://freesound.org/s/467183/)
 - [Click sound](https://freesound.org/s/580827/)
 - [Hitmarker sound](https://freesound.org/s/322640/)
 - [Slash sound](https://freesound.org/s/574820/)

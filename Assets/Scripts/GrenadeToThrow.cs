@@ -10,12 +10,15 @@ public class GrenadeToThrow : MonoBehaviour {
     public float explosionForce = 700.0f;
     public float throwForce = 10.0f;
     public GameObject explosion;
+    public AudioClip explosionSound;
+    private AudioSource audioSource;
 
     private float timer;
     private bool hasExploded = false;
 
     void Start() {
         timer = delay;
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update() {
@@ -28,6 +31,7 @@ public class GrenadeToThrow : MonoBehaviour {
 
     void Explode() {
         hasExploded = true;
+        audioSource.PlayOneShot(explosionSound);
         Instantiate(explosion, transform.position, transform.rotation);
 
         Collider[] hitObjects = Physics.OverlapSphere(transform.position, blastRadius);
@@ -44,6 +48,6 @@ public class GrenadeToThrow : MonoBehaviour {
         }
 
 
-        Destroy(gameObject);
+        Destroy(gameObject, 3);
     }
 }

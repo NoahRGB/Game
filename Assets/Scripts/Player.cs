@@ -11,10 +11,6 @@ public class Player : MonoBehaviour {
     public AudioClip selectSound;
     public AudioClip hitSound;
     public AudioClip deathSound;
-    public GameObject revolver;
-    public GameObject axe;
-    public GameObject assaultRifle;
-    public GameObject grenade;
 
     public bool hasLoaded = false;
     public bool inMenu = false;

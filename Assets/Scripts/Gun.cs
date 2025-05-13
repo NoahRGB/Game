@@ -10,15 +10,18 @@ public class Gun : MonoBehaviour {
     public AudioClip shootSound;
     public AudioClip reloadSound;
     public AudioClip hitmarkerSound;
+    public AudioClip emptyShootSound;
 
     private AudioSource audioSource;
     private Animator animator;
     private Camera cam;
     private TMP_Text ammoText;
     private Player player;
+    private Inventory inventory;
 
     public int magazineCapacity = 6;
     private int currentMagazine = 6;
+    private int totalAmmo = 0;
     public float range = 100.0f;
     public float damage = 5.0f;
     public float shootCooldown = 1.0f;
@@ -32,7 +35,18 @@ public class Gun : MonoBehaviour {
         animator = GetComponent<Animator>();
         ammoText = GameObject.Find("AmmoCountUI").GetComponent<TMP_Text>();
         audioSource = GetComponent<AudioSource>();
-        player = GameObject.Find("Player").GetComponent<Player>();
+
+        GameObject playerObj = GameObject.Find("Player");
+        player = playerObj.GetComponent<Player>();
+        inventory = playerObj.GetComponent<Inventory>();
+
+        if (inventory.magazineCounts.ContainsKey(name)) {
+            currentMagazine = inventory.magazineCounts[name];
+        }
+
+        if (inventory.ammoCounts.ContainsKey(name)) {
+            totalAmmo = inventory.ammoCounts[name];
+        }
 
         UpdateUI();
     }
@@ -45,10 +59,13 @@ public class Gun : MonoBehaviour {
             if (Input.GetMouseButton(0) && canShoot) {
                 if (currentMagazine != 0) {
                     currentMagazine--;
+                    inventory.SetAmmo(name, currentMagazine, totalAmmo);
                     Shoot();
-                    StartCoroutine(resetShootCooldown());
-                    StartCoroutine(resetReloadCooldown());
+                } else {
+                    audioSource.PlayOneShot(emptyShootSound);
                 }
+                StartCoroutine(resetShootCooldown());
+                StartCoroutine(resetReloadCooldown());
             }
 
             if (Input.GetKeyDown(KeyCode.R) && canReload) {
@@ -70,22 +87,31 @@ public class Gun : MonoBehaviour {
         canReload = true;
     }
 
+    public void SetupAmmo(int currentMag, int currentAmmo) {
+        currentMagazine = currentMag;
+        totalAmmo = currentAmmo;
+    }
+
     public void Reload() {
-        currentMagazine = magazineCapacity;
+        int ammoToReload = magazineCapacity - currentMagazine;
+
+        currentMagazine += (totalAmmo >= ammoToReload) ? ammoToReload : totalAmmo;
+        totalAmmo -= (totalAmmo >= ammoToReload) ? ammoToReload : totalAmmo;;
         if (audioSource != null) {
             audioSource.PlayOneShot(reloadSound);
         }
+
         UpdateUI();
+        StartCoroutine(resetShootCooldown());
         StartCoroutine(resetReloadCooldown());
+        inventory.SetAmmo(name, currentMagazine, totalAmmo);
     }
 
     void Shoot() {
         animator.SetBool("Shoot", true);
         muzzleFlash.Play();
-        if (audioSource != null) {
-            audioSource.PlayOneShot(shootSound);
-        }
-
+        audioSource.PlayOneShot(shootSound);
+        
         RaycastHit hit;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range)) {
 
@@ -105,6 +131,6 @@ public class Gun : MonoBehaviour {
     }
 
     void UpdateUI() {
-        ammoText.text = $"{currentMagazine}/{magazineCapacity}";
+        ammoText.text = $"{currentMagazine}/{totalAmmo}";
     }
 }
