@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,7 +9,10 @@ public class Goal : MonoBehaviour {
     public List<string> levelOrder = new List<string>();
     public Dictionary<string, Vector3> goalPositions = new Dictionary<string, Vector3>();
     WaveController waveController;
-    public int currentLevel = -1;
+    public int currentLevel = 0;
+
+    private Player player;
+    private TMP_Text levelText;
 
     MeshRenderer goalRenderer;
     BoxCollider goalCollider;
@@ -19,6 +23,8 @@ public class Goal : MonoBehaviour {
         waveController = GameObject.Find("WaveController").GetComponent<WaveController>();
         goalRenderer = GetComponent<MeshRenderer>();
         goalCollider = GetComponent<BoxCollider>();
+        player = GameObject.Find("Player").GetComponent<Player>();
+        levelText = GameObject.Find("LevelNumberUI").GetComponent<TMP_Text>();
         DisableGoal();
 
         goalPositions.Add("Level 1", new Vector3(9.9f, 5.57f, -15.4f));
@@ -29,14 +35,17 @@ public class Goal : MonoBehaviour {
 
     public void SetupNewLevel() {
         currentLevel++;
-        string newLevel = levelOrder[currentLevel];
-        transform.localPosition = goalPositions[newLevel];
-        nextSceneName = levelOrder[currentLevel + 1];
+        string thisLevel = SceneManager.GetActiveScene().name;
+        string nextLevel = (thisLevel == "Level 1") ? "Level 2" : "Level 1";
+        nextSceneName = (thisLevel == "Level 1") ? "Level 1" : "Level 2";
+        transform.localPosition = goalPositions[nextLevel];
     }
 
-    void OnCollisionEnter(Collision collision) {
-        if (collision.collider.gameObject.name == "Player") {
+    void OnTriggerEnter(Collider other) {
+        if (other.gameObject.name == "Player") {
+            DisableGoal();
             SceneManager.LoadScene(nextSceneName);
+            SetupNewLevel();
             waveController.NextLevel();
         }
     }
@@ -51,4 +60,7 @@ public class Goal : MonoBehaviour {
         goalCollider.enabled = true;
     }
 
+    private void UpdateLevelUI() {
+        levelText.text = $"Level\n{currentLevel}";
+    }
 }

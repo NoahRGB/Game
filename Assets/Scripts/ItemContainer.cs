@@ -5,19 +5,32 @@ using UnityEngine;
 public class ItemContainer : MonoBehaviour {
 
     private Animator animator;
+    private Movement movement;
+    private Player player;
 
     void Start() {
         animator = GetComponent<Animator>();
+        
+        GameObject playerObj = GameObject.Find("Player");
+        movement = playerObj.GetComponent<Movement>();
+        player = playerObj.GetComponent<Player>();
     }
 
     void Update() {
-        // float horizontalMove = Input.GetAxis("Horizontal");
-        // float verticalMove = Input.GetAxis("Vertical");
+        if (!player.inMenu) {
+            float horizontalMove = Input.GetAxis("Horizontal");
+            float verticalMove = Input.GetAxis("Vertical");
 
-        // if (horizontalMove > 0 || verticalMove > 0) {
-        //     animator.SetBool("Moving", true);
-        // } else {
-        //     animator.SetBool("Moving", false);
-        // }
+            if (horizontalMove != 0 || verticalMove != 0) {
+                animator.SetBool("Moving", true);
+                if (movement.isSprinting) {
+                    animator.SetFloat("Speed", 2.0f);
+                } else {
+                    animator.SetFloat("Speed", 1.0f);
+                }
+            } else {
+                animator.SetBool("Moving", false);
+            }
+        }
     }
 }

@@ -125,7 +125,7 @@ MonoBehaviour:
   - Level 2
   - Level 1
   currentLevel: -1
-  sceneName: Level 2
+  nextSceneName: 
 --- !u!65 &6403063419731438182
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -141,7 +141,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

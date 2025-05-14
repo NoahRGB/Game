@@ -152,7 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delay: 3
   damage: 10
-  blastRadius: 10
+  blastRadius: 20
   explosionForce: 300
   throwForce: 10
   explosion: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}

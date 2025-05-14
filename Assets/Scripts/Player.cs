@@ -12,27 +12,32 @@ public class Player : MonoBehaviour {
     public AudioClip hitSound;
     public AudioClip deathSound;
 
-    public bool hasLoaded = false;
     public bool inMenu = false;
 
     private AudioSource audioSource;
     private TMP_Text hudCashText;
     private TMP_Text shopCashText;
+    private LifeController lifeController;
     private float cash = 200.0f;
 
     void Start() {
         hudCashText = GameObject.Find("CashText").GetComponent<TMP_Text>();
         shopCashText = GameObject.Find("ShopCashText").GetComponent<TMP_Text>();
         audioSource = GetComponent<AudioSource>();
+        lifeController = GetComponent<LifeController>();
         UpdateCashUI();
     }
 
+    public void ResetGame() {
+        lifeController.health = lifeController.maxHealth;
+    }
+
     public void ResetPosition() {
-        gameObject.transform.localPosition = new Vector3(55.0f, 3.2f, 11.0f);
+        transform.localPosition = new Vector3(55.0f, 3.2f, 11.0f);
     }
 
     void Update() {
-        hasLoaded = true;
+
     }
 
     public void Hit() {
@@ -63,5 +68,17 @@ public class Player : MonoBehaviour {
 
     void UpdateCashUI() {
         hudCashText.text = shopCashText.text = $"${cash}";
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
+        ResetPosition();
+    }
+
+    void OnEnable() {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable() {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }

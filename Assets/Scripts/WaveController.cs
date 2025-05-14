@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class WaveController : MonoBehaviour {
  
@@ -56,7 +57,6 @@ public class WaveController : MonoBehaviour {
             if (!levelEnded) {
                 if (enemiesContainer != null) {
                     enemiesRemaining = enemiesContainer.transform.childCount;
-
                     if (enemiesRemaining == 0) {
                         EnableShop();
                     }
@@ -75,6 +75,7 @@ public class WaveController : MonoBehaviour {
 
     public void RestartGame() {
         shop.GetComponent<Shop>().RefreshShop();
+        player.ResetGame();
         waveNumber = 0;
         levelEnded = false;
         RestartEnemyConfigurations();
@@ -82,9 +83,6 @@ public class WaveController : MonoBehaviour {
 
     public void NextLevel() {
         EnableShop();
-        player.ResetPosition();
-        goal.SetupNewLevel();
-        goal.DisableGoal();
         waveNumber = 0;
         levelEnded = false;
     }

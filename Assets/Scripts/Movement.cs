@@ -29,7 +29,7 @@ public class Movement : MonoBehaviour {
     private Player player;
     private HealthBar staminaBar;
 
-    private bool isSprinting = false;
+    public bool isSprinting = false;
     private bool isCrouching = false;
     private bool isSliding = false;
 

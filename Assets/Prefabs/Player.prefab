@@ -493,12 +493,13 @@ MonoBehaviour:
   gravity: -0.1
   jumpForce: 10
   floorCheckDistance: 1.2
-  maxStamina: 100
-  currentStamina: 100
+  maxStamina: 300
+  currentStamina: 300
   staminaDrainRate: 1
   staminaRechargeRate: 1
   jumpSound: {fileID: 8300000, guid: 3bf26ac26b3c6784f89cf88265f13311, type: 3}
   playerBody: {fileID: 5730699872729545084}
+  isSprinting: 0
 --- !u!114 &336805620186419231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -514,7 +515,6 @@ MonoBehaviour:
   selectSound: {fileID: 8300000, guid: f323e7ac05f234c469da302650e7c9d6, type: 3}
   hitSound: {fileID: 8300000, guid: 19bc8cf42359a9a4496ca297ef9f736b, type: 3}
   deathSound: {fileID: 8300000, guid: c2c746d0fd55d5f419ae38eee9259ef2, type: 3}
-  hasLoaded: 0
   inMenu: 0
 --- !u!114 &1903698128995952329
 MonoBehaviour:

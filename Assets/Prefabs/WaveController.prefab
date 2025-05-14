@@ -45,8 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 412bd10128089984194ddcadec449a08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 6692307015562798635, guid: 9212c161a5d9d214e93dcedd0c4f81db, type: 3}
-  maxWaves: 2
+  maxWaves: 1
   disableWaves: 0
   gameStarted: 0
   includedEnemies:

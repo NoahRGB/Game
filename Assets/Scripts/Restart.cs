@@ -5,11 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Restart : MonoBehaviour {
 
-    Player player;
     WaveController waveController;
 
     void Start() {
-        player = GameObject.Find("Player").GetComponent<Player>();
         waveController = GameObject.Find("WaveController").GetComponent<WaveController>();
     }
 
@@ -19,8 +17,5 @@ public class Restart : MonoBehaviour {
     }
 
     void OnDestroy() {
-        if (player != null) {
-            player.ResetPosition();
-        }
     }
 }

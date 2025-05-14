@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 8881676842359254463}
   - component: {fileID: 8266637190604594174}
   m_Layer: 5
-  m_Name: RoundOverText
+  m_Name: TitleText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -220,7 +220,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Round Over
+  m_text: Item  Shop
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: be2e5ba8c8ff97e43871a09b167f586b, type: 2}
   m_sharedMaterial: {fileID: 6650069972075056726, guid: be2e5ba8c8ff97e43871a09b167f586b, type: 2}
