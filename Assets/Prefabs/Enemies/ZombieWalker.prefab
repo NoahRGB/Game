@@ -723,9 +723,9 @@ GameObject:
   - component: {fileID: 8732589999693262809}
   - component: {fileID: 7092404391361121955}
   - component: {fileID: 353752411399636498}
+  - component: {fileID: 2458722039562120148}
   - component: {fileID: 3156195032152078436}
   - component: {fileID: 1716850515065169868}
-  - component: {fileID: 2458722039562120148}
   - component: {fileID: 7277635584209688988}
   m_Layer: 7
   m_Name: ZombieWalker
@@ -844,39 +844,6 @@ CapsuleCollider:
   m_Height: 5.494652
   m_Direction: 1
   m_Center: {x: 0.24102822, y: 2.8997564, z: 0.65871817}
---- !u!114 &3156195032152078436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4644543657443768720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bb6c0a0f758fae408cccc62a7343855, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 20
-  health: 20
---- !u!114 &1716850515065169868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4644543657443768720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ced71b9428b704041892b8d6ac6932bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isRunner: 0
-  isAttacking: 0
-  hitDetectionRange: 2.5
-  hitCooldown: 3
-  readyToHit: 1
-  damage: 5
-  isDead: 0
 --- !u!82 &2458722039562120148
 AudioSource:
   m_ObjectHideFlags: 0
@@ -973,6 +940,41 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3156195032152078436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4644543657443768720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb6c0a0f758fae408cccc62a7343855, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 30
+  health: 30
+--- !u!114 &1716850515065169868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4644543657443768720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ced71b9428b704041892b8d6ac6932bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isBasic: 0
+  isRunner: 0
+  isAttacking: 0
+  hitDetectionRange: 2.5
+  hitCooldown: 3
+  readyToHit: 1
+  damage: 5
+  isDead: 0
+  prize: 10
 --- !u!114 &7277635584209688988
 MonoBehaviour:
   m_ObjectHideFlags: 0

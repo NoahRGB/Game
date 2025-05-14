@@ -12,7 +12,7 @@ public class Shop : MonoBehaviour {
 
     void Start() {
         playerInventory = GameObject.Find("Player").GetComponent<Inventory>();
-        RefreshShop();
+        // RefreshShop();
     }
 
     void Update() {

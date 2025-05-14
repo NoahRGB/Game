@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -6,12 +7,15 @@ using UnityEngine.AI;
 
 public class WaveController : MonoBehaviour {
  
-    public GameObject enemy;
     public int maxWaves = 2;
     public bool disableWaves = true;
+    public bool gameStarted = false;
+    public List<GameObject> includedEnemies = new List<GameObject>();
+
+    private Dictionary<string, int> enemyConfigurations = new Dictionary<string, int>();
+    private Dictionary<string, float> enemyScaleRates = new Dictionary<string, float>();
 
     private int waveNumber = 0;
-    private int currentMaxEnemyCount = 0;
     private int enemiesRemaining = 0;
     private bool levelEnded = false;
 
@@ -32,29 +36,57 @@ public class WaveController : MonoBehaviour {
 
         hud = GameObject.Find("UI");
         shop = GameObject.Find("Shop");
+
+        enemyScaleRates.Add("ZombieRunner", 2.0f);
+        enemyScaleRates.Add("ZombieWalker", 1.5f);
+        enemyScaleRates.Add("Wolf", 2.0f);
+    }
+
+    void RestartEnemyConfigurations() {
+        foreach (GameObject enemy in includedEnemies) {
+            enemyConfigurations.Remove(enemy.name);
+        }
+        enemyConfigurations.Add("ZombieRunner", 5);
+        enemyConfigurations.Add("ZombieWalker", 3);
+        enemyConfigurations.Add("Wolf", 3);
     }
 
     void Update() {
-        if (!disableWaves) {
+        if (!disableWaves && gameStarted) {
             if (!levelEnded) {
-                enemiesRemaining = enemiesContainer.transform.childCount;
+                if (enemiesContainer != null) {
+                    enemiesRemaining = enemiesContainer.transform.childCount;
 
-                if (enemiesRemaining == 0) {
-                    EnableShop();
+                    if (enemiesRemaining == 0) {
+                        EnableShop();
+                    }
+
+                    enemiesText.text = $"{enemiesRemaining}";
+                    waveText.text = $"Wave\n{waveNumber} / {maxWaves}";
+                } else {
+                    enemiesContainer = GameObject.Find("Enemies");
                 }
 
-                enemiesText.text = $"{enemiesRemaining}";
-                waveText.text = $"Wave\n{waveNumber} / {maxWaves}";
             }
-        } else {
+        } else if (disableWaves) {
             DisableShop();
         }
+    }
+
+    public void RestartGame() {
+        shop.GetComponent<Shop>().RefreshShop();
+        waveNumber = 0;
+        levelEnded = false;
+        RestartEnemyConfigurations();
     }
 
     public void NextLevel() {
         EnableShop();
         player.ResetPosition();
         goal.SetupNewLevel();
+        goal.DisableGoal();
+        waveNumber = 0;
+        levelEnded = false;
     }
 
     void EnableShop() {
@@ -71,32 +103,45 @@ public class WaveController : MonoBehaviour {
         shop.SetActive(false);
     }
 
+    Vector3 GenerateRandomPointOnNavmesh() {
+        // generate random point in the bounds of the map
+        Vector3 randomPoint = new Vector3(UnityEngine.Random.Range(-30.0f, 64.0f), -1.0f, UnityEngine.Random.Range(-43.0f, 58.0f));
+
+        NavMeshHit hitResult;
+        // find the closest point on the NavMesh to the random point
+        if (NavMesh.SamplePosition(randomPoint, out hitResult, 1000.0f, NavMesh.AllAreas)) {
+            return hitResult.position;
+        }
+        return Vector3.zero;
+    }
+
     public void NextWave() {
         DisableShop();
         if (waveNumber == maxWaves) {
             EndLevel();
         } else {
-            waveNumber++;
-            currentMaxEnemyCount += 0;
-            for (int i = 0; i < currentMaxEnemyCount; i++) {
+            foreach (GameObject enemyType in includedEnemies) {
+                if (enemyConfigurations.ContainsKey(enemyType.name) && enemyScaleRates.ContainsKey(enemyType.name)) {
+                    
+                    if (waveNumber != 0) {
+                        enemyConfigurations[enemyType.name] = (int)Math.Floor(enemyConfigurations[enemyType.name] * enemyScaleRates[enemyType.name]);
+                    }
 
-                // generate a random point in the area
-                Vector3 randomPoint = new Vector3(Random.Range(-30.0f, 64.0f), -1.0f, Random.Range(-43.0f, 58.0f));
-
-                NavMeshHit hitResult;
-                // find the closest point on the NavMesh to the random point
-                if (NavMesh.SamplePosition(randomPoint, out hitResult, 1000.0f, NavMesh.AllAreas)) {
-                    // spawn an enemy in at that random position on the NavMesh
-                    Instantiate(enemy, new Vector3(hitResult.position.x, 2.1f, hitResult.position.z), Quaternion.identity, enemiesContainer.transform);
+                    Debug.Log($"Spawning in {enemyConfigurations[enemyType.name]} {enemyType.name}");
+                    for (int i = 0; i < enemyConfigurations[enemyType.name]; i++) {
+                        Vector3 point = GenerateRandomPointOnNavmesh();
+                        Instantiate(enemyType, new Vector3(point.x, 2.1f, point.z), Quaternion.identity, enemiesContainer.transform);
+                    }
+                } else {
+                    Debug.Log($"{enemyType.name} has not been configured");
                 }
-        
             }
+            waveNumber++;
         }
-
     }
 
     void EndLevel() {
         levelEnded = true;
-        goal.enableGoal();
+        goal.EnableGoal();
     }
 }

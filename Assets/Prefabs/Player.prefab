@@ -313,7 +313,7 @@ CharacterController:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -514,10 +514,6 @@ MonoBehaviour:
   selectSound: {fileID: 8300000, guid: f323e7ac05f234c469da302650e7c9d6, type: 3}
   hitSound: {fileID: 8300000, guid: 19bc8cf42359a9a4496ca297ef9f736b, type: 3}
   deathSound: {fileID: 8300000, guid: c2c746d0fd55d5f419ae38eee9259ef2, type: 3}
-  revolver: {fileID: 8224458751315120797, guid: 6dc6f89221f9ffb4f8cb2283230d37a1, type: 3}
-  axe: {fileID: 7952211761302199821, guid: 178684013be2ecb4ea3374f1b2475ffb, type: 3}
-  assaultRifle: {fileID: 2068979287255278712, guid: 40accb8b5ddc6134bbbcdbe12eb9cbb8, type: 3}
-  grenade: {fileID: 6674806250069176683, guid: fc34ea7b67e6fb341afd86cc8b012d43, type: 3}
   hasLoaded: 0
   inMenu: 0
 --- !u!114 &1903698128995952329
@@ -532,8 +528,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb6c0a0f758fae408cccc62a7343855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
-  health: 20
+  isInvincible: 0
+  maxHealth: 50
+  health: 50
 --- !u!114 &5961342668552667698
 MonoBehaviour:
   m_ObjectHideFlags: 0

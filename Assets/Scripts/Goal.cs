@@ -19,7 +19,7 @@ public class Goal : MonoBehaviour {
         waveController = GameObject.Find("WaveController").GetComponent<WaveController>();
         goalRenderer = GetComponent<MeshRenderer>();
         goalCollider = GetComponent<BoxCollider>();
-        disableGoal();
+        DisableGoal();
 
         goalPositions.Add("Level 1", new Vector3(9.9f, 5.57f, -15.4f));
         goalPositions.Add("Level 2", new Vector3(-2.76f, 5.57f, -15.4f));
@@ -41,12 +41,12 @@ public class Goal : MonoBehaviour {
         }
     }
 
-    public void disableGoal() {
+    public void DisableGoal() {
         goalRenderer.enabled = false;
         goalCollider.enabled = false;
     }
 
-    public void enableGoal() {
+    public void EnableGoal() {
         goalRenderer.enabled = true;
         goalCollider.enabled = true;
     }

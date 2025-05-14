@@ -72,7 +72,6 @@ public class Gun : MonoBehaviour {
                 animator.SetBool("Reload", true);
             }
         }
-
     }
 
     IEnumerator resetShootCooldown() {

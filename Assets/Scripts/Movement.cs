@@ -102,12 +102,14 @@ public class Movement : MonoBehaviour {
                 currentStamina += staminaRechargeRate;
             }
 
-            characterController.Move(movementDir.normalized * Time.deltaTime * currentSpeed);
+            // characterController.Move(movementDir.normalized * Time.deltaTime * currentSpeed);
+            characterController.Move(movementDir * Time.deltaTime * currentSpeed);
             characterController.Move(velocity * Time.deltaTime);
+        } else {
+            characterController.Move(Vector3.zero);
         }
 
         staminaBar.SetHealth((int)currentStamina);
-        transform.position += Vector3.zero;
     }
 
     void startSlide() {

@@ -1495,8 +1495,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb6c0a0f758fae408cccc62a7343855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
-  health: 20
+  isInvincible: 0
+  maxHealth: 30
+  health: 30
 --- !u!114 &6065445388978872237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1509,6 +1510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ced71b9428b704041892b8d6ac6932bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isBasic: 0
   isRunner: 1
   isAttacking: 0
   hitDetectionRange: 2.5
@@ -1516,6 +1518,7 @@ MonoBehaviour:
   readyToHit: 1
   damage: 5
   isDead: 0
+  prize: 10
 --- !u!82 &-6954125444245932215
 AudioSource:
   m_ObjectHideFlags: 0

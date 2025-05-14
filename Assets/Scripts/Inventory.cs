@@ -94,10 +94,10 @@ public class Inventory : MonoBehaviour {
         currentItems.Add(weaponToAdd.name);
 
         if (weaponToAdd.name == "ASSAULT RIFLE") {
-            ammoCounts[weaponToAdd.name] = 50;
+            ammoCounts[weaponToAdd.name] = 30;
             magazineCounts[weaponToAdd.name] = 30;
         } else if (weaponToAdd.name == "REVOLVER") {
-            ammoCounts[weaponToAdd.name] = 40;
+            ammoCounts[weaponToAdd.name] = 20;
             magazineCounts[weaponToAdd.name] = 6;
         } else if (weaponToAdd.name == "GRENADE") {
             ammoCounts[weaponToAdd.name] = 3;

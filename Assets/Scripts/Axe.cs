@@ -16,9 +16,7 @@ public class Axe : MonoBehaviour {
     public bool combo1Ready = true;
     public bool combo2Ready = true;
     public bool combo3Ready = true;
-
-    private float iTime = 0.5f;
-
+    
     private AudioSource audioSource;
     private Animator animator;
     private TMP_Text ammoText;

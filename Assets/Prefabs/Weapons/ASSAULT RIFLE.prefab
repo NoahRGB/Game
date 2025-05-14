@@ -112,7 +112,7 @@ MonoBehaviour:
   emptyShootSound: {fileID: 8300000, guid: 97c64d39265fb1743a04220d9a1818eb, type: 3}
   magazineCapacity: 30
   range: 100
-  damage: 2
+  damage: 7
   shootCooldown: 0.2
   canShoot: 1
   reloadCooldown: 1

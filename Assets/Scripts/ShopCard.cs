@@ -30,7 +30,6 @@ public class ShopCard : MonoBehaviour {
     }
 
     public void Purchase() {
-        Debug.Log("Clicked button");
         // if player has enough money
         if (player.GetCash() >= itemPrice) {
             player.RemoveCash(itemPrice);

@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class LifeController : MonoBehaviour {
 
+    public bool isInvincible = false;
     private TMP_Text healthBarText;
     private HealthBar healthBar;
 
@@ -23,16 +24,18 @@ public class LifeController : MonoBehaviour {
     }
 
     public void TakeDamage(float damage) {
-        health -= damage;
+        if (!isInvincible) {
+            health -= damage;
 
-        if (gameObject.name == "Player") {
-            gameObject.transform.GetComponent<Player>().Hit();
-            healthBarText.text = ((health / maxHealth) * 100) + "%";
-            healthBar.SetHealth((int)health);
-        }
+            if (gameObject.name == "Player") {
+                gameObject.transform.GetComponent<Player>().Hit();
+                healthBarText.text = ((health / maxHealth) * 100) + "%";
+                healthBar.SetHealth((int)health);
+            }
 
-        if (health <= 0) {
-            Die();
+            if (health <= 0) {
+                Die();
+            }
         }
     }
 

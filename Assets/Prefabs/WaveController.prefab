@@ -46,8 +46,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 6692307015562798635, guid: 9212c161a5d9d214e93dcedd0c4f81db, type: 3}
-  maxWaves: 1
+  maxWaves: 2
   disableWaves: 0
+  gameStarted: 0
+  includedEnemies:
+  - {fileID: 4644543657443768720, guid: 1639b5d257b4f0f4badc518bddd5d607, type: 3}
+  - {fileID: 6692307015562798635, guid: 9212c161a5d9d214e93dcedd0c4f81db, type: 3}
+  - {fileID: 7550318680135269879, guid: 4854f5758b71a064ca5eef35dd151346, type: 3}
 --- !u!114 &8397983306149672272
 MonoBehaviour:
   m_ObjectHideFlags: 0

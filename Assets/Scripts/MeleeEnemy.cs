@@ -18,12 +18,16 @@ public class MeleeEnemy : MonoBehaviour {
     private NavMeshAgent agent;
     private GameObject player;
     private Animator animator;
+    private Rigidbody rb;
+    private CapsuleCollider enemyCollider;
     private EnemySoundController enemySoundController;
 
     void Start() {
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindWithTag("Player");
         animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
+        enemyCollider = GetComponent<CapsuleCollider>();
         enemySoundController = GetComponent<EnemySoundController>();
 
         if (animator != null && !isBasic) {
@@ -60,9 +64,12 @@ public class MeleeEnemy : MonoBehaviour {
         isDead = true;
         animator.SetTrigger("Die");
 
-        if (enemySoundController != null) {
-            enemySoundController.die();
-        }
+        Destroy(agent);
+        Destroy(rb);
+        Destroy(enemyCollider);
+
+        enemySoundController.die();
+
         StartCoroutine(DestroySelf());
     }
 
