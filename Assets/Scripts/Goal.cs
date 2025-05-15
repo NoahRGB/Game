@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,7 +10,7 @@ public class Goal : MonoBehaviour {
     public List<string> levelOrder = new List<string>();
     public Dictionary<string, Vector3> goalPositions = new Dictionary<string, Vector3>();
     WaveController waveController;
-    public int currentLevel = 0;
+    public int currentLevel = 1;
 
     private Player player;
     private TMP_Text levelText;
@@ -35,6 +36,7 @@ public class Goal : MonoBehaviour {
 
     public void SetupNewLevel() {
         currentLevel++;
+        UpdateLevelUI();
         string thisLevel = SceneManager.GetActiveScene().name;
         string nextLevel = (thisLevel == "Level 1") ? "Level 2" : "Level 1";
         nextSceneName = (thisLevel == "Level 1") ? "Level 1" : "Level 2";

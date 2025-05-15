@@ -18,6 +18,7 @@ public class Player : MonoBehaviour {
     private TMP_Text hudCashText;
     private TMP_Text shopCashText;
     private LifeController lifeController;
+    private Inventory inventory;
     private float cash = 200.0f;
 
     void Start() {
@@ -25,11 +26,13 @@ public class Player : MonoBehaviour {
         shopCashText = GameObject.Find("ShopCashText").GetComponent<TMP_Text>();
         audioSource = GetComponent<AudioSource>();
         lifeController = GetComponent<LifeController>();
+        inventory = GetComponent<Inventory>();
         UpdateCashUI();
     }
 
     public void ResetGame() {
-        lifeController.health = lifeController.maxHealth;
+        lifeController.SetHealth(lifeController.maxHealth);
+        inventory.ResetItems();
     }
 
     public void ResetPosition() {

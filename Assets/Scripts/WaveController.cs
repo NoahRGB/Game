@@ -60,7 +60,6 @@ public class WaveController : MonoBehaviour {
                     if (enemiesRemaining == 0) {
                         EnableShop();
                     }
-
                     enemiesText.text = $"{enemiesRemaining}";
                     waveText.text = $"Wave\n{waveNumber} / {maxWaves}";
                 } else {
@@ -74,6 +73,7 @@ public class WaveController : MonoBehaviour {
     }
 
     public void RestartGame() {
+        Debug.Log("Restart game");
         shop.GetComponent<Shop>().RefreshShop();
         player.ResetGame();
         waveNumber = 0;
@@ -88,10 +88,13 @@ public class WaveController : MonoBehaviour {
     }
 
     void EnableShop() {
-        Cursor.lockState = CursorLockMode.None;
-        player.inMenu = true;
-        hud.SetActive(false);
-        shop.SetActive(true);
+        if (!player.inMenu) {
+            shop.GetComponent<Shop>().RefreshShop();
+            Cursor.lockState = CursorLockMode.None;
+            player.inMenu = true;
+            hud.SetActive(false);
+            shop.SetActive(true);
+        }
     }
 
     void DisableShop() {

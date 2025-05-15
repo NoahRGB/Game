@@ -3690,6 +3690,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1215482669}
+    - target: {fileID: 6702440052349476148, guid: 764de8518e694d349b61e02bc7c00ce2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1215482669}
     - target: {fileID: 6885467872419718473, guid: 764de8518e694d349b61e02bc7c00ce2, type: 3}
       propertyPath: m_Name
       value: Shop

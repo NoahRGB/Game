@@ -64,6 +64,29 @@ public class Inventory : MonoBehaviour {
         weaponText.text = currentItem;
     }
 
+    public void RefillAmmo() {
+        foreach (string item in currentItems) {
+            GameObject weaponObj = allItems.Find(itemObj => itemObj.name == item);
+            MaxAmmo(weaponObj.name);
+            ResetAmmo(weaponObj);
+        }
+    }
+
+    public void ResetItems() {
+        List<int> itemsToRemove = new List<int>();
+        for (int i = 0; i < currentItems.Count; i++) {
+            if (currentItems[i] != "AXE") {
+                itemsToRemove.Add(i);
+            }
+        }
+
+        foreach (int index in itemsToRemove) {
+            currentItems.Remove(currentItems[index]);
+        }
+
+        SwitchWeapon("AXE");
+    }
+
     public void SetAmmo(string weaponName, int newMagazine, int newAmmo) {
         magazineCounts[weaponName] = newMagazine;
         ammoCounts[weaponName] = newAmmo;
@@ -77,32 +100,40 @@ public class Inventory : MonoBehaviour {
         weapon.name = weaponName;
         currentItem = weaponName;
 
+        ResetAmmo(weapon);
+
+        ToggleAmmoUI();
+    }
+
+    private void ResetAmmo(GameObject weapon) {
         Gun gunObj = weapon.GetComponent<Gun>();
         if (gunObj != null) {
-            gunObj.SetupAmmo(magazineCounts[weaponName], ammoCounts[weaponName]);
+            gunObj.SetupAmmo(magazineCounts[weapon.name], ammoCounts[weapon.name]);
         }
 
         Grenade grenadeObj = weapon.GetComponent<Grenade>();
         if (grenadeObj != null) {
-            grenadeObj.SetupAmmo(ammoCounts[weaponName]);
+            grenadeObj.SetupAmmo(ammoCounts[weapon.name]);
         }
+    }
 
-        ToggleAmmoUI();
+    private void MaxAmmo(string weaponName) {
+        if (weaponName == "ASSAULT RIFLE") {
+            ammoCounts[weaponName] = 70;
+            magazineCounts[weaponName] = 30;
+        } else if (weaponName == "REVOLVER") {
+            ammoCounts[weaponName] = 40;
+            magazineCounts[weaponName] = 6;
+        } else if (weaponName == "GRENADE") {
+            ammoCounts[weaponName] = 3;
+            magazineCounts[weaponName] = 1;
+        }
     }
 
     public void AddNewWeapon(GameObject weaponToAdd) {
         currentItems.Add(weaponToAdd.name);
 
-        if (weaponToAdd.name == "ASSAULT RIFLE") {
-            ammoCounts[weaponToAdd.name] = 30;
-            magazineCounts[weaponToAdd.name] = 30;
-        } else if (weaponToAdd.name == "REVOLVER") {
-            ammoCounts[weaponToAdd.name] = 20;
-            magazineCounts[weaponToAdd.name] = 6;
-        } else if (weaponToAdd.name == "GRENADE") {
-            ammoCounts[weaponToAdd.name] = 3;
-            magazineCounts[weaponToAdd.name] = 1;
-        }
+        MaxAmmo(weaponToAdd.name);
     }
 
     void ToggleAmmoUI() {

@@ -31,6 +31,8 @@ public class ItemContainer : MonoBehaviour {
             } else {
                 animator.SetBool("Moving", false);
             }
+        } else {
+            animator.SetBool("Moving", false);
         }
     }
 }

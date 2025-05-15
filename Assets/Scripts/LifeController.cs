@@ -23,6 +23,16 @@ public class LifeController : MonoBehaviour {
         }
     }
 
+    public void SetHealth(float newHealth) {
+        if (newHealth <= maxHealth) {
+            health = newHealth;
+        } else {
+            health = maxHealth;
+        }
+        healthBarText.text = ((health / maxHealth) * 100) + "%";
+        healthBar.SetHealth((int)health);
+    }
+
     public void TakeDamage(float damage) {
         if (!isInvincible) {
             health -= damage;

@@ -20,6 +20,7 @@ public class MainMenu : MonoBehaviour {
         playerObj.SetActive(false);
         hud.SetActive(false);
         shop.SetActive(false);
+        waveController.gameStarted = false;
     }
 
     void Update() {
