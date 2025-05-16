@@ -28,6 +28,7 @@ public class Goal : MonoBehaviour {
         levelText = GameObject.Find("LevelNumberUI").GetComponent<TMP_Text>();
         DisableGoal();
 
+        // add the positions of the goal on different levels
         goalPositions.Add("Level 1", new Vector3(9.9f, 5.57f, -15.4f));
         goalPositions.Add("Level 2", new Vector3(-2.76f, 5.57f, -15.4f));
 
@@ -35,8 +36,11 @@ public class Goal : MonoBehaviour {
     }
 
     public void SetupNewLevel() {
+        // increment level counter for the HUD
         currentLevel++;
         UpdateLevelUI();
+
+        // if the current level is Level1, the next level is Level2
         string thisLevel = SceneManager.GetActiveScene().name;
         string nextLevel = (thisLevel == "Level 1") ? "Level 2" : "Level 1";
         nextSceneName = (thisLevel == "Level 1") ? "Level 1" : "Level 2";
@@ -44,6 +48,7 @@ public class Goal : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider other) {
+        // if the player collides, launch the new level
         if (other.gameObject.name == "Player") {
             DisableGoal();
             SceneManager.LoadScene(nextSceneName);

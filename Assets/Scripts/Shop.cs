@@ -29,6 +29,7 @@ public class Shop : MonoBehaviour {
     }
 
     public void RefillAmmo() {
+        // use inventory methods to reset the ammo  if the player has enough money
         if (player.GetCash() >= 100) {
             player.RemoveCash(100);
             playerInventory.RefillAmmo();
@@ -37,6 +38,7 @@ public class Shop : MonoBehaviour {
 
     public void RefreshShop() {
         
+        // destroy every card in the shop
         GameObject shopBorder = transform.GetChild(0).gameObject;
         foreach (Transform child in shopBorder.transform) {
             if (child.name.Contains("Card")) {

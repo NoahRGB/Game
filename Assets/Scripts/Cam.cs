@@ -22,15 +22,15 @@ public class Cam : MonoBehaviour {
         float mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
 
+        // change camera rotations based on user input
         xRot -= mouseY;
         xRot = Mathf.Clamp(xRot, -90.0f, 90.0f);
-
         yRot += mouseX;
 
         if (followPlayer) {
+            // rotate the camera, player and item by the new rotations
             transform.localRotation = Quaternion.Euler(xRot, 0.0f, 0.0f);
             item.transform.localRotation = Quaternion.Euler(xRot, 0.0f, 0.0f);
-            //item.transform.Rotate(xRot, yRot, 0.0f);
             player.transform.localRotation = Quaternion.Euler(0.0f, yRot, 0.0f);
         }
     }

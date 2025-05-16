@@ -21,6 +21,7 @@ public class ItemContainer : MonoBehaviour {
             float horizontalMove = Input.GetAxis("Horizontal");
             float verticalMove = Input.GetAxis("Vertical");
 
+            // if the player is moving & sprinting, speed up the view bobbing animations
             if (horizontalMove != 0 || verticalMove != 0) {
                 animator.SetBool("Moving", true);
                 if (movement.isSprinting) {

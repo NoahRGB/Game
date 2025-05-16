@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour {
 
+    // the slider changes how much the health bar is filled up by in the UI
     public Slider slider;
 
     public void SetMaxHealth(int maxHealth) {

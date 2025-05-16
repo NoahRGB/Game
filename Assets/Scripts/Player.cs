@@ -74,6 +74,7 @@ public class Player : MonoBehaviour {
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
+        // every time a new level is loaded, reset the player position
         ResetPosition();
     }
 

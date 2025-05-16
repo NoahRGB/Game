@@ -40,10 +40,11 @@ public class Gun : MonoBehaviour {
         player = playerObj.GetComponent<Player>();
         inventory = playerObj.GetComponent<Inventory>();
 
+        // if the inventory already has ammo information on this gun, then load it
+        // (this ensures that if you shoot and then switch back to a gun, it will remember its ammo)
         if (inventory.magazineCounts.ContainsKey(name)) {
             currentMagazine = inventory.magazineCounts[name];
         }
-
         if (inventory.ammoCounts.ContainsKey(name)) {
             totalAmmo = inventory.ammoCounts[name];
         }
@@ -56,6 +57,8 @@ public class Gun : MonoBehaviour {
         animator.SetBool("Reload", false);
 
         if (!player.inMenu) {
+
+            // if the cooldown is up, reduce ammo and shoot the gun
             if (Input.GetMouseButton(0) && canShoot) {
                 if (currentMagazine != 0) {
                     currentMagazine--;
@@ -92,8 +95,8 @@ public class Gun : MonoBehaviour {
     }
 
     public void Reload() {
+        // reload the ammo based on how much is in reserve and how much is in the magainze
         int ammoToReload = magazineCapacity - currentMagazine;
-
         currentMagazine += (totalAmmo >= ammoToReload) ? ammoToReload : totalAmmo;
         totalAmmo -= (totalAmmo >= ammoToReload) ? ammoToReload : totalAmmo;;
         if (audioSource != null) {
@@ -107,10 +110,12 @@ public class Gun : MonoBehaviour {
     }
 
     void Shoot() {
+        // play the specified shoot sound and muzzle flash
         animator.SetBool("Shoot", true);
         muzzleFlash.Play();
         audioSource.PlayOneShot(shootSound);
         
+        // use a raycast in the direction the camera is looking
         RaycastHit hit;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range)) {
 

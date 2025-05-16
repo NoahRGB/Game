@@ -5,6 +5,10 @@ using UnityEngine.AI;
 
 public class MenuMover : MonoBehaviour {
 
+    // a basic enemy that just moves a specified distance in the x direction and then
+    // resets itself back to the start
+    // used in the main menu / game over menu
+
     public float xDistanceToMove;
     public bool isRunner = false;
     private NavMeshAgent agent;
@@ -27,6 +31,7 @@ public class MenuMover : MonoBehaviour {
     void Update() {
         agent.SetDestination(target);
 
+        // reset back to the start
         if (agent.remainingDistance <= 1.0f) {
             transform.localPosition = resetPoint;
         }

@@ -7,17 +7,17 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour {
 
-    public List<GameObject> allItems = new List<GameObject>();
-    public List<string> currentItems = new List<string>();
-    public Dictionary<string, int> ammoCounts = new Dictionary<string, int>();
-    public Dictionary<string, int> magazineCounts = new Dictionary<string, int>();
+    public List<GameObject> allItems = new List<GameObject>(); // holds all possible weapons the player can have
+    public List<string> currentItems = new List<string>(); // holds the weapons the player currently has unlocked
+    public Dictionary<string, int> ammoCounts = new Dictionary<string, int>(); // stores a weapon name alongside how much reserve ammo the player has
+    public Dictionary<string, int> magazineCounts = new Dictionary<string, int>(); // stores a weapon name alongisde how much ammo is in the magainze
     public string currentItem;
 
     Transform itemContainer; 
 
     private TMP_Text weaponText;
     private GameObject magazineUI;
-    private List<string> ammoWeapons = new List<string>() { "REVOLVER", "ASSAULT RIFLE" };
+    private List<string> ammoWeapons = new List<string>() { "REVOLVER", "ASSAULT RIFLE" }; // weapons that need special ammo UI
     private Player player;
 
     void Start() {
@@ -27,6 +27,7 @@ public class Inventory : MonoBehaviour {
 
         itemContainer = transform.Find("Item"); 
 
+        // add the current weapon to current items
         currentItems.Add(itemContainer.GetChild(0).gameObject.name);
         currentItem = itemContainer.GetChild(0).gameObject.name;
         ToggleAmmoUI();
@@ -34,6 +35,7 @@ public class Inventory : MonoBehaviour {
 
     void Update() {
         string newWeapon = null;
+        // if the player presses the number keys and has enough weapons, then switch to that weapon
         if (Input.GetKeyDown(KeyCode.Alpha1)) {
             if (currentItems.Count >= 1) {
                 newWeapon = currentItems[0];
@@ -65,6 +67,7 @@ public class Inventory : MonoBehaviour {
     }
 
     public void RefillAmmo() {
+        // set each unlocked weapon to maximum ammo
         foreach (string item in currentItems) {
             GameObject weaponObj = allItems.Find(itemObj => itemObj.name == item);
             MaxAmmo(weaponObj.name);
@@ -73,6 +76,7 @@ public class Inventory : MonoBehaviour {
     }
 
     public void ResetItems() {
+        // removes all items and gives the player an axe
         List<int> itemsToRemove = new List<int>();
         for (int i = 0; i < currentItems.Count; i++) {
             if (currentItems[i] != "AXE") {
@@ -88,11 +92,13 @@ public class Inventory : MonoBehaviour {
     }
 
     public void SetAmmo(string weaponName, int newMagazine, int newAmmo) {
+        // sets the ammo/magazine counts for the specified weapon
         magazineCounts[weaponName] = newMagazine;
         ammoCounts[weaponName] = newAmmo;
     }
 
     void SwitchWeapon(string weaponName) {
+        // destroys the current weapon object and instantiates a new one
         player.SwitchWeapon();
 
         Destroy(itemContainer.GetChild(0).gameObject);
@@ -101,11 +107,11 @@ public class Inventory : MonoBehaviour {
         currentItem = weaponName;
 
         ResetAmmo(weapon);
-
         ToggleAmmoUI();
     }
 
     private void ResetAmmo(GameObject weapon) {
+        // takes a weapon and sets its ammo based on what is stored in the inventory
         Gun gunObj = weapon.GetComponent<Gun>();
         if (gunObj != null) {
             gunObj.SetupAmmo(magazineCounts[weapon.name], ammoCounts[weapon.name]);
@@ -118,6 +124,7 @@ public class Inventory : MonoBehaviour {
     }
 
     private void MaxAmmo(string weaponName) {
+        // resets a weapon to its maximum ammo values
         if (weaponName == "ASSAULT RIFLE") {
             ammoCounts[weaponName] = 70;
             magazineCounts[weaponName] = 30;
@@ -132,7 +139,6 @@ public class Inventory : MonoBehaviour {
 
     public void AddNewWeapon(GameObject weaponToAdd) {
         currentItems.Add(weaponToAdd.name);
-
         MaxAmmo(weaponToAdd.name);
     }
 

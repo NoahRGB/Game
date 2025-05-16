@@ -12,6 +12,7 @@ public class MeleeEnemyAttackbox : MonoBehaviour {
     }
 
     private void OnTriggerEnter(Collider other) {
+        // if the hitbox collides with the player and the enemy is attacking then reduce the player's health
         if (!parent.isDead && parent.isAttacking && other.tag == "Player") {
             LifeController lifeController = other.GetComponent<LifeController>();
             if (lifeController) {

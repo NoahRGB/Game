@@ -70,6 +70,7 @@ public class Movement : MonoBehaviour {
                 stopCrouch();
             }
 
+            // if sliding, then lower the slide timer
             if (isSliding) {
                 characterController.Move(movementDir * slideSpeed * Time.deltaTime);
                 slideTimer -= Time.fixedTime;
@@ -79,6 +80,7 @@ public class Movement : MonoBehaviour {
                 }
             }
 
+            // if touching the ground, then jump
             if (isGrounded()) {
                 if (velocity.y < 0) velocity.y = 0.0f; // building up gravity, so reset it
                 if (Input.GetButtonDown("Jump")) {
@@ -92,23 +94,29 @@ public class Movement : MonoBehaviour {
 
             float currentSpeed = (isSprinting && isGrounded()) ? sprintSpeed : isCrouching ? crouchSpeed : walkSpeed;
 
+            // if sprinting, then drain the stamina
             if (currentSpeed == sprintSpeed) {
                 currentStamina -= staminaDrainRate;
+
+                // if stamina runs out, start walking
                 if (currentStamina < 0) {
                     currentStamina = 0;
                     currentSpeed = walkSpeed;
                 }
             } else if (currentStamina < maxStamina) {
+                // if not sprinting, recharge stamina
                 currentStamina += staminaRechargeRate;
             }
 
-            // characterController.Move(movementDir.normalized * Time.deltaTime * currentSpeed);
+            // move the player based on their speed and velocity 
             characterController.Move(movementDir * Time.deltaTime * currentSpeed);
             characterController.Move(velocity * Time.deltaTime);
         } else {
+            // this stops the player from moving on its own when in menus
             characterController.Move(Vector3.zero);
         }
 
+        // update the stamina UI
         staminaBar.SetHealth((int)currentStamina);
     }
 
@@ -122,11 +130,12 @@ public class Movement : MonoBehaviour {
     }
 
     void startCrouch() {
+        // lower the player model 
         isCrouching = true;
         transform.Translate(new Vector3(0.0f, -crouchHeight, 0.0f));
         playerBody.transform.localScale = new Vector3(transform.localScale.x, crouchHeight, transform.localScale.z);
 
-
+        // lower the item and camera
         cam.transform.Translate(0.0f, -crouchHeight, 0.0f);
         currentItem.transform.Translate(0.0f, -crouchHeight, 0.0f);
 
@@ -136,6 +145,7 @@ public class Movement : MonoBehaviour {
     }
     
     void stopCrouch() {
+        // raise the player & item & camera
         isCrouching = false;
         playerBody.transform.localScale = new Vector3(transform.localScale.x, 1.0f, transform.localScale.z);
         cam.transform.Translate(0.0f, crouchHeight, 0.0f);

@@ -14,6 +14,7 @@ public class LifeController : MonoBehaviour {
     public float health = 20.0f;
 
     void Start() {
+        // if the parent is the player, setup the health bar UI componenet
         if (gameObject.name == "Player") {
             healthBarText = GameObject.Find("HealthBarTextUI").GetComponent<TMP_Text>();
             healthBar = GameObject.Find("HealthBar").GetComponent<HealthBar>();
@@ -24,6 +25,7 @@ public class LifeController : MonoBehaviour {
     }
 
     public void SetHealth(float newHealth) {
+        // sets the health based on the max health
         if (newHealth <= maxHealth) {
             health = newHealth;
         } else {
@@ -37,6 +39,7 @@ public class LifeController : MonoBehaviour {
         if (!isInvincible) {
             health -= damage;
 
+            // if the parent is the player, update the health bar UI
             if (gameObject.name == "Player") {
                 gameObject.transform.GetComponent<Player>().Hit();
                 healthBarText.text = ((health / maxHealth) * 100) + "%";

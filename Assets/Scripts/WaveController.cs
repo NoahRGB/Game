@@ -13,8 +13,8 @@ public class WaveController : MonoBehaviour {
     public bool gameStarted = false;
     public List<GameObject> includedEnemies = new List<GameObject>();
 
-    private Dictionary<string, int> enemyConfigurations = new Dictionary<string, int>();
-    private Dictionary<string, float> enemyScaleRates = new Dictionary<string, float>();
+    private Dictionary<string, int> enemyConfigurations = new Dictionary<string, int>(); // stores the enemy name alongisde the number of them that should spawn in a wave
+    private Dictionary<string, float> enemyScaleRates = new Dictionary<string, float>(); // stores the enemy name alongisde the rate at which they should scale every wave
 
     private int waveNumber = 0;
     private int enemiesRemaining = 0;
@@ -38,12 +38,14 @@ public class WaveController : MonoBehaviour {
         hud = GameObject.Find("UI");
         shop = GameObject.Find("Shop");
 
+        // initialise the scale rates (i.e. every wave there will be 2x more zombie runners)
         enemyScaleRates.Add("ZombieRunner", 2.0f);
         enemyScaleRates.Add("ZombieWalker", 1.5f);
         enemyScaleRates.Add("Wolf", 2.0f);
     }
 
     void RestartEnemyConfigurations() {
+        // reset the number of enemies each wave to the default
         foreach (GameObject enemy in includedEnemies) {
             enemyConfigurations.Remove(enemy.name);
         }
@@ -56,6 +58,7 @@ public class WaveController : MonoBehaviour {
         if (!disableWaves && gameStarted) {
             if (!levelEnded) {
                 if (enemiesContainer != null) {
+                    // update the number of enemies remaining and enable the shop if they are all eliminated
                     enemiesRemaining = enemiesContainer.transform.childCount;
                     if (enemiesRemaining == 0) {
                         EnableShop();
@@ -73,7 +76,7 @@ public class WaveController : MonoBehaviour {
     }
 
     public void RestartGame() {
-        Debug.Log("Restart game");
+        // refresh the shop, reset the player and wave values
         shop.GetComponent<Shop>().RefreshShop();
         player.ResetGame();
         waveNumber = 0;
@@ -89,6 +92,7 @@ public class WaveController : MonoBehaviour {
 
     void EnableShop() {
         if (!player.inMenu) {
+            // disable HUD, enable shop & refresh it
             shop.GetComponent<Shop>().RefreshShop();
             Cursor.lockState = CursorLockMode.None;
             player.inMenu = true;
@@ -98,6 +102,7 @@ public class WaveController : MonoBehaviour {
     }
 
     void DisableShop() {
+        // disable shop and enable HUD
         Cursor.lockState = CursorLockMode.Locked;
         player.inMenu = false;
         hud.SetActive(true);
@@ -119,16 +124,17 @@ public class WaveController : MonoBehaviour {
     public void NextWave() {
         DisableShop();
         if (waveNumber == maxWaves) {
+            // level must be over
             EndLevel();
         } else {
             foreach (GameObject enemyType in includedEnemies) {
                 if (enemyConfigurations.ContainsKey(enemyType.name) && enemyScaleRates.ContainsKey(enemyType.name)) {
-                    
+                    // for every enemy, increase the number that spawns every wave based on the scale rate in enemyScaleRates
                     if (waveNumber != 0) {
                         enemyConfigurations[enemyType.name] = (int)Math.Floor(enemyConfigurations[enemyType.name] * enemyScaleRates[enemyType.name]);
                     }
 
-                    Debug.Log($"Spawning in {enemyConfigurations[enemyType.name]} {enemyType.name}");
+                    // instantiate the correct number of enemies at random points on the NavMesh
                     for (int i = 0; i < enemyConfigurations[enemyType.name]; i++) {
                         Vector3 point = GenerateRandomPointOnNavmesh();
                         Instantiate(enemyType, new Vector3(point.x, 2.1f, point.z), Quaternion.identity, enemiesContainer.transform);

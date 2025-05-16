@@ -37,11 +37,14 @@ public class MeleeEnemy : MonoBehaviour {
     }
 
     void Update() {
+
+        // as long as the enemy isn't attacking, they will chase the player's transform.position
         if (!isDead && !isBasic) {
             if (!isAttacking) {
                 agent.SetDestination(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
             }
 
+            // if the enemy is close enough to the player, then attack
             if (readyToHit && (Vector3.Distance(transform.position, player.transform.position) <= hitDetectionRange)) {
                 Attack();
             }
@@ -63,7 +66,8 @@ public class MeleeEnemy : MonoBehaviour {
         agent.SetDestination(transform.position);
         isDead = true;
         animator.SetTrigger("Die");
-
+        
+        // destroy componenets that interact with other objects so they can ignore the dead enemy
         Destroy(agent);
         Destroy(rb);
         Destroy(enemyCollider);

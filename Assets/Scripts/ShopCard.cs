@@ -30,7 +30,7 @@ public class ShopCard : MonoBehaviour {
     }
 
     public void Purchase() {
-        // if player has enough money
+        // if player has enough money, give them the weapon
         if (player.GetCash() >= itemPrice) {
             player.RemoveCash(itemPrice);
             playerInventory.AddNewWeapon(playerInventory.allItems.Find(item => item.name == itemName));
@@ -39,6 +39,7 @@ public class ShopCard : MonoBehaviour {
     }
 
     public void InitialiseCard(string name, float price, GameObject icon) {
+        // set the various UI elements of the card
         foreach (Transform child in transform) {
             if (child.name.Contains("Name")) {
                 nameUI = child.GetComponent<TMP_Text>();
@@ -49,6 +50,7 @@ public class ShopCard : MonoBehaviour {
             }
         }
 
+        // create the provided icon (the picture of the item on the card)
         Instantiate(icon, transform);
 
         nameUI.text = name;
@@ -69,6 +71,7 @@ public class ShopCard : MonoBehaviour {
     }
 
     void DisableCardButton() {
+        // sets the SELECT button to red and disables it
         selectButtonUI.GetComponent<UnityEngine.UI.Button>().interactable = false;
         selectButtonUI.GetComponent<UnityEngine.UI.Image>().color = Color.red;
         selectButtonUI.GetComponentInChildren<TMP_Text>().text = "OWNED";

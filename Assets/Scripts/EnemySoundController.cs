@@ -16,9 +16,8 @@ public class EnemySoundController : MonoBehaviour {
     private void Start() {
         audioSource = GetComponent<AudioSource>();
     }
-
     void Update() {
-        
+        // plays a random clip from the list every time the cooldown is up
         if (!isDead && Time.time > nextAudioTime) {
             nextAudioTime += audioCooldown;
             int clipIndex = Random.Range(0, clips.Count);

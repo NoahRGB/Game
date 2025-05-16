@@ -53,6 +53,7 @@ public class Axe : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider collision) {
+        // finds any lire controllers and deducts health
         if (collision.gameObject.tag == "Enemy") {
             LifeController lifeController = collision.transform.GetComponent<LifeController>();
             if (lifeController != null) {

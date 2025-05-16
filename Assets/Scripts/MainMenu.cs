@@ -17,6 +17,7 @@ public class MainMenu : MonoBehaviour {
         hud = GameObject.Find("UI");
         shop = GameObject.Find("Shop");
 
+        // hide the camera and menus
         playerObj.SetActive(false);
         hud.SetActive(false);
         shop.SetActive(false);
@@ -29,6 +30,7 @@ public class MainMenu : MonoBehaviour {
     }
 
     void OnDestroy() {
+        // re activate the UI and cameras
         playerObj.SetActive(true);
         player.ResetPosition();
         player.inMenu = false;
